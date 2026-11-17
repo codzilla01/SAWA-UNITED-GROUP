@@ -25,7 +25,7 @@ export function Stats() {
           </p>
           <p className="inline-flex items-center gap-1.5 text-[0.64rem] font-medium tracking-wide text-muted">
             <MapPin className="h-3.5 w-3.5 text-accent" />
-            {t.footer.location} · {t.common.since} 2007
+            {t.footer.location} · {t.common.since} 2014
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export function About() {
                   <div>
                     <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-accent">{t.about.imageCaption}</p>
                     <p className="mt-1 font-display text-[2.3rem] font-light leading-none text-[#f6f1e7]" dir="ltr">
-                      2007
+                      2014
                     </p>
                   </div>
                   <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[#f6f1e7] backdrop-blur-sm">

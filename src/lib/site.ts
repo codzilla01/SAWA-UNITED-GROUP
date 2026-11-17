@@ -26,11 +26,11 @@ export const site = {
   phoneHref: "+201011225592",
   whatsappNumber: "201011225592",
   address: {
-    ar: "مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر",
-    en: "El Sheikh Zayed City, 6 October City, Egypt",
-    fr: "El Sheikh Zayed City, Cité du 6 Octobre, Égypte",
+    ar: "مدينة الشيخ زايد، مدينة 6 أكتوبر، القاهرة، مصر",
+    en: "El Sheikh Zayed City, 6 October City, Cairo, Egypt",
+    fr: "El Sheikh Zayed City, Cité du 6 Octobre, Le Caire, Égypte",
   },
-  founded: "2007",
+  founded: "2014",
   socials: [
     {
       id: "facebook",
