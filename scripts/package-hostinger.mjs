@@ -40,26 +40,44 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
+// Ensure dist/assets contains compiled .js and .css bundles and index.html is built (not raw source)
+const assetsDir = path.join(distDir, "assets");
+if (!fs.existsSync(assetsDir)) {
+  console.error("Error: dist/assets/ directory missing.");
+  process.exit(1);
+}
+const assetFiles = fs.readdirSync(assetsDir);
+if (!assetFiles.some((f) => f.endsWith(".js")) || !assetFiles.some((f) => f.endsWith(".css"))) {
+  console.error("Error: dist/assets/ must contain compiled .js and .css bundles.");
+  process.exit(1);
+}
+const builtHtml = fs.readFileSync(path.join(distDir, "index.html"), "utf8");
+if (builtHtml.includes("/src/main.tsx")) {
+  console.error("Error: dist/index.html still references /src/main.tsx (unbuilt source).");
+  process.exit(1);
+}
+
 // Guard against accidentally bundling a live config.php with secrets
 const FORBIDDEN = new Set(["config.php", ".DS_Store", "Thumbs.db"]);
 
-function collectFiles(dir, prefix = "") {
-  const entries = fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
-  const files = [];
-  for (const entry of entries) {
-    if (FORBIDDEN.has(entry.name)) continue;
-    const abs = path.join(dir, entry.name);
-    const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
-    if (entry.isDirectory()) {
-      files.push(...collectFiles(abs, rel));
-    } else if (entry.isFile()) {
-      files.push({ abs, rel });
+function collectEntries(dir, prefix = "") {
+  const items = fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  const entries = [];
+  for (const item of items) {
+    if (FORBIDDEN.has(item.name)) continue;
+    const abs = path.join(dir, item.name);
+    const rel = prefix ? `${prefix}/${item.name}` : item.name;
+    if (item.isDirectory()) {
+      entries.push({ abs, rel: `${rel}/`, isDir: true });
+      entries.push(...collectEntries(abs, rel));
+    } else if (item.isFile()) {
+      entries.push({ abs, rel, isDir: false });
     }
   }
-  return files;
+  return entries;
 }
 
-// CRC-32 implementation (standard IEEE 802.3 polynomial) for pure-Node ZIP writer
+// Standard IEEE 802.3 CRC-32 table
 const crcTable = new Uint32Array(256);
 for (let n = 0; n < 256; n += 1) {
   let c = n;
@@ -90,27 +108,28 @@ function dosDateTime(date) {
   return { dosTime, dosDate };
 }
 
-function writeZip(files, destination) {
+function writeZip(entries, destination) {
   const localParts = [];
   const centralParts = [];
   let offset = 0;
-  const now = new Date();
-  const { dosTime, dosDate } = dosDateTime(now);
+  const { dosTime, dosDate } = dosDateTime(new Date());
 
-  for (const file of files) {
-    const raw = fs.readFileSync(file.abs);
-    const nameBuf = Buffer.from(file.rel, "utf8");
-    const checksum = crc32(raw);
-    const deflated = zlib.deflateRawSync(raw, { level: 9 });
-    const useDeflate = deflated.length < raw.length;
+  for (const entry of entries) {
+    const nameBuf = Buffer.from(entry.rel, "utf8");
+    const raw = entry.isDir ? Buffer.alloc(0) : fs.readFileSync(entry.abs);
+    const checksum = entry.isDir ? 0 : crc32(raw);
+    const deflated = entry.isDir ? raw : zlib.deflateRawSync(raw, { level: 9 });
+    const useDeflate = !entry.isDir && deflated.length < raw.length;
     const data = useDeflate ? deflated : raw;
     const method = useDeflate ? 8 : 0;
+    const extAttr = entry.isDir
+      ? (((0o040755 << 16) | 0x10) >>> 0) // Unix dir 0755 + DOS dir flag
+      : ((0o100644 << 16) >>> 0);         // Unix file 0644
 
-    // Local file header (30 bytes + filename)
     const local = Buffer.alloc(30);
     local.writeUInt32LE(0x04034b50, 0);
-    local.writeUInt16LE(20, 4); // version needed 2.0
-    local.writeUInt16LE(0x0800, 6); // UTF-8 filename flag
+    local.writeUInt16LE(20, 4);
+    local.writeUInt16LE(0x0800, 6);
     local.writeUInt16LE(method, 8);
     local.writeUInt16LE(dosTime, 10);
     local.writeUInt16LE(dosDate, 12);
@@ -120,10 +139,9 @@ function writeZip(files, destination) {
     local.writeUInt16LE(nameBuf.length, 26);
     local.writeUInt16LE(0, 28);
 
-    // Central directory header (46 bytes + filename) — Unix 0644 permissions
     const central = Buffer.alloc(46);
     central.writeUInt32LE(0x02014b50, 0);
-    central.writeUInt16LE((3 << 8) | 20, 4); // made by Unix
+    central.writeUInt16LE((3 << 8) | 20, 4);
     central.writeUInt16LE(20, 6);
     central.writeUInt16LE(0x0800, 8);
     central.writeUInt16LE(method, 10);
@@ -137,7 +155,7 @@ function writeZip(files, destination) {
     central.writeUInt16LE(0, 32);
     central.writeUInt16LE(0, 34);
     central.writeUInt16LE(0, 36);
-    central.writeUInt32LE((0o100644 << 16) >>> 0, 38); // regular file, chmod 644
+    central.writeUInt32LE(extAttr, 38);
     central.writeUInt32LE(offset, 42);
 
     localParts.push(local, nameBuf, data);
@@ -150,8 +168,8 @@ function writeZip(files, destination) {
   eocd.writeUInt32LE(0x06054b50, 0);
   eocd.writeUInt16LE(0, 4);
   eocd.writeUInt16LE(0, 6);
-  eocd.writeUInt16LE(files.length, 8);
-  eocd.writeUInt16LE(files.length, 10);
+  eocd.writeUInt16LE(entries.length, 8);
+  eocd.writeUInt16LE(entries.length, 10);
   eocd.writeUInt32LE(centralBuf.length, 12);
   eocd.writeUInt32LE(offset, 16);
   eocd.writeUInt16LE(0, 20);
@@ -159,14 +177,15 @@ function writeZip(files, destination) {
   fs.writeFileSync(destination, Buffer.concat([...localParts, centralBuf, eocd]));
 }
 
-const files = collectFiles(distDir);
-writeZip(files, outZip);
+const entries = collectEntries(distDir);
+writeZip(entries, outZip);
 
 const sizeKb = (fs.statSync(outZip).size / 1024).toFixed(1);
+const fileEntries = entries.filter((e) => !e.isDir);
 console.log(`\n✓ Hostinger package ready: ${path.basename(outZip)} (${sizeKb} KB)`);
 console.log(`  Target: /domains/sawa-united.net/public_html`);
-console.log(`  Files (${files.length}):`);
-for (const file of files) {
-  const kb = (fs.statSync(file.abs).size / 1024).toFixed(1);
-  console.log(`    - ${file.rel.padEnd(22)} ${kb.padStart(7)} KB`);
+console.log(`  Files (${fileEntries.length}):`);
+for (const entry of fileEntries) {
+  const kb = (fs.statSync(entry.abs).size / 1024).toFixed(1);
+  console.log(`    - ${entry.rel.padEnd(34)} ${kb.padStart(7)} KB`);
 }
