@@ -53,7 +53,7 @@ export function Footer() {
 
         <div className="grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.4fr_0.7fr_0.8fr_1fr]">
           <div>
-            <Logo invert />
+            <Logo invert size="lg" />
             <p className="mt-5 max-w-xs text-[0.86rem] leading-relaxed text-[#f6f1e7]/55">{t.footer.tagline}</p>
             <p className="mt-5 font-display text-[1.05rem] italic text-accent" dir="ltr">
               {t.footer.taglineShort}

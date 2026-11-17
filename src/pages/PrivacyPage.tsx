@@ -5,8 +5,8 @@ import { navigateTo } from "@/lib/router";
 import { useSeo } from "@/lib/seo";
 import { privacyPolicy } from "@/data/content";
 import { site } from "@/lib/site";
-import { Button, Container, Eyebrow, Reveal } from "@/components/ui";
-import { ArrowLeft, ArrowUpRight, LogoMark, Mail, Shield } from "@/components/icons";
+import { Button, Container, Eyebrow, Logo, Reveal } from "@/components/ui";
+import { ArrowLeft, ArrowUpRight, Mail, Shield } from "@/components/icons";
 
 type PolicyLang = "ar" | "en";
 
@@ -152,7 +152,7 @@ export function PrivacyPage() {
               </div>
 
               <div className="mt-4 overflow-hidden rounded-[22px] bg-brand p-5 text-[#f6f1e7]">
-                <LogoMark className="h-7 w-7 text-accent" />
+                <Logo invert size="sm" />
                 <p className="mt-3 text-[0.86rem] font-semibold leading-snug">{t.contact.title}</p>
                 <p className="mt-1.5 text-[0.72rem] leading-relaxed text-[#f6f1e7]/50">{t.contact.info.response}</p>
                 <button

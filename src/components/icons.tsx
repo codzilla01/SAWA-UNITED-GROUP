@@ -1,6 +1,8 @@
-import type { SVGProps } from "react";
+import type { ImgHTMLAttributes, SVGProps } from "react";
+import logoMarkSrc from "@/assets/logo-mark.png";
 
 type IconProps = SVGProps<SVGSVGElement>;
+type LogoMarkProps = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt">;
 
 const base = {
   viewBox: "0 0 24 24",
@@ -12,16 +14,19 @@ const base = {
   "aria-hidden": true,
 };
 
-export function LogoMark({ className = "", ...props }: IconProps) {
+export function LogoMark({ className = "", ...props }: LogoMarkProps) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true" {...props}>
-      <g fill="currentColor">
-        <path d="M20 20C20 8.6 27.8 1.6 38.3 1.6 38.3 12.1 31.4 20 20 20Z" />
-        <path d="M20 20C31.4 20 38.3 27.8 38.3 38.3 27.8 38.3 20 31.4 20 20Z" opacity="0.78" />
-        <path d="M20 20C20 31.4 12.1 38.3 1.6 38.3 1.6 27.8 8.6 20 20 20Z" opacity="0.55" />
-        <path d="M20 20C8.6 20 1.6 12.1 1.6 1.6 12.1 1.6 20 8.6 20 20Z" opacity="0.34" />
-      </g>
-    </svg>
+    <img
+      src={logoMarkSrc}
+      alt=""
+      width={128}
+      height={104}
+      decoding="async"
+      draggable={false}
+      aria-hidden="true"
+      className={`inline-block select-none object-contain ${className}`.trim()}
+      {...props}
+    />
   );
 }
 

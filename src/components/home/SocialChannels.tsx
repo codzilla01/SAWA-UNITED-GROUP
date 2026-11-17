@@ -428,7 +428,7 @@ export function SocialChannels() {
                                 key={`${half}-${idx}`}
                                 className="inline-flex items-center gap-2.5 text-[0.58rem] font-bold uppercase tracking-[0.24em] text-[#f6f1e7]/48"
                               >
-                                <LogoMark className="h-2.5 w-2.5 shrink-0 text-accent" />
+                                <LogoMark className="h-3.5 w-auto shrink-0" />
                                 {meta.ticker}
                               </span>
                             ))}

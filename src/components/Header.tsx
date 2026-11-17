@@ -186,7 +186,7 @@ export function Header() {
             : "border-transparent bg-base/80 backdrop-blur-md",
         )}
       >
-        <Container className="flex h-[70px] items-center justify-between gap-4">
+        <Container className="flex h-[74px] items-center justify-between gap-4">
           <button
             type="button"
             onClick={() => {
@@ -196,7 +196,7 @@ export function Header() {
             aria-label="SAWA United Group — home"
             className="shrink-0"
           >
-            <Logo />
+            <Logo size="md" />
           </button>
 
           <nav aria-label={t.nav.menu} className="hidden items-center gap-8 lg:flex">
@@ -265,7 +265,7 @@ export function Header() {
           )}
         >
           <div className="flex items-center justify-between">
-            <Logo invert />
+            <Logo invert size="md" />
             <button
               type="button"
               onClick={() => setOpen(false)}

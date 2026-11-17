@@ -25,7 +25,7 @@ const REQUIRED_FILES = [
   "robots.txt",
   "sitemap.xml",
   "site.webmanifest",
-  "favicon.svg",
+  "favicon-192.png",
   "og-cover.jpg",
 ];
 
