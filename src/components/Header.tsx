@@ -5,7 +5,7 @@ import { useTheme } from "@/lib/theme";
 import { navigateTo } from "@/lib/router";
 import { site } from "@/lib/site";
 import { Button, Container, Logo } from "./ui";
-import { Close, Globe, Mail, MapPin, Menu, Moon, Phone, Sun } from "./icons";
+import { ArrowUpRight, Close, Globe, Mail, MapPin, Menu, Moon, Phone, Sun, socialIcon } from "./icons";
 
 const locales: Locale[] = ["ar", "en", "fr"];
 
@@ -79,7 +79,7 @@ export function ThemeToggle({ invert = false, className }: { invert?: boolean; c
 type NavItem = { key: string; label: string; anchor?: string; route?: "projects" | "home" };
 
 export function Header() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -146,7 +146,7 @@ export function Header() {
               {localeMeta.ar.label} · English · Français
             </span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
             <a href={`mailto:${site.email}`} className="inline-flex items-center gap-1.5 transition-colors hover:text-accent">
               <Mail className="h-3.5 w-3.5" />
               {site.email}
@@ -155,6 +155,25 @@ export function Header() {
               <Phone className="h-3.5 w-3.5" />
               {site.phoneDisplay}
             </a>
+            <span className="h-3 w-px bg-white/15" aria-hidden="true" />
+            <div className="flex items-center gap-1" aria-label={t.social.dockLabel}>
+              {site.socials.map((channel) => {
+                const Icon = socialIcon(channel.icon);
+                return (
+                  <a
+                    key={channel.id}
+                    href={channel.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${t.social.channels[channel.id].name} (${channel.handle})`}
+                    title={`${channel.label} · ${channel.handle}`}
+                    className="flex h-6 w-6 items-center justify-center rounded-full text-[#f6f1e7]/60 transition-all duration-300 hover:-translate-y-px hover:bg-white/[0.07] hover:text-accent"
+                  >
+                    <Icon className="h-3.5 w-3.5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </Container>
       </div>
@@ -288,8 +307,42 @@ export function Header() {
               </a>
               <p className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                {site.address.ar}
+                {site.address[locale]}
               </p>
+            </div>
+          </div>
+
+          <div className="mt-7">
+            <p className="text-[0.64rem] font-bold uppercase tracking-[0.24em] text-[#f6f1e7]/40">
+              {t.social.followUs}
+            </p>
+            <div className="mt-3 flex flex-col gap-2">
+              {site.socials.map((channel) => {
+                const Icon = socialIcon(channel.icon);
+                const meta = t.social.channels[channel.id];
+                return (
+                  <a
+                    key={channel.id}
+                    href={channel.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.035] px-3.5 py-2.5 transition-colors duration-300 hover:border-accent/55 hover:bg-white/[0.07]"
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.05] text-accent transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-[#181310]">
+                        <Icon className="h-3.5 w-3.5" />
+                      </span>
+                      <span className="flex flex-col leading-tight">
+                        <span className="text-[0.82rem] font-semibold text-[#f6f1e7]">{meta.name}</span>
+                        <span dir="ltr" className="mt-0.5 text-[0.64rem] text-[#f6f1e7]/50 group-hover:text-accent">
+                          {channel.handle}
+                        </span>
+                      </span>
+                    </span>
+                    <ArrowUpRight className="arrow-flip h-3.5 w-3.5 text-[#f6f1e7]/40 transition-colors group-hover:text-accent" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

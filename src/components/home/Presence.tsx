@@ -3,8 +3,9 @@ import { cn } from "@/utils/cn";
 import { useI18n } from "@/lib/i18n";
 import { navigateTo } from "@/lib/router";
 import { markets, sectors, type Market } from "@/data/content";
+import { site } from "@/lib/site";
 import { Container, Eyebrow, Reveal } from "@/components/ui";
-import { ArrowUpRight, MapPin, sectorIcon } from "@/components/icons";
+import { ArrowUpRight, Instagram, MapPin, sectorIcon } from "@/components/icons";
 import landTopo from "world-atlas/land-110m.json";
 import { feature } from "topojson-client";
 import { geoGraticule10, geoInterpolate, geoNaturalEarth1, geoPath } from "d3-geo";
@@ -284,6 +285,27 @@ export function Presence() {
                   );
                 })}
               </div>
+              {active.id === "cairo" && (() => {
+                const egyptSocial = site.socials.find((item) => item.id === "instagram");
+                if (!egyptSocial) return null;
+                return (
+                  <a
+                    href={egyptSocial.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group mt-3.5 flex items-center justify-between rounded-xl border border-accent/35 bg-accent/12 px-3 py-2 text-[0.66rem] text-[#f6f1e7] transition-colors hover:border-accent hover:bg-accent hover:text-[#181310]"
+                  >
+                    <span className="inline-flex items-center gap-2 font-semibold">
+                      <Instagram className="h-3.5 w-3.5 shrink-0" />
+                      <span>{t.social.egyptBadge}</span>
+                    </span>
+                    <span dir="ltr" className="inline-flex items-center gap-1 font-bold opacity-80">
+                      {egyptSocial.handle}
+                      <ArrowUpRight className="h-3 w-3" />
+                    </span>
+                  </a>
+                );
+              })()}
               <button
                 type="button"
                 onClick={() => navigateTo("home", "contact")}

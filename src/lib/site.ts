@@ -1,3 +1,16 @@
+export type SocialId = "facebook" | "tiktok" | "instagram";
+
+export type SocialChannel = {
+  id: SocialId;
+  code: string;
+  label: string;
+  handle: string;
+  shortUrl: string;
+  href: string;
+  icon: SocialId;
+  coordinates: string;
+};
+
 export const site = {
   name: {
     ar: "مجموعة سوا المتحدة",
@@ -19,10 +32,37 @@ export const site = {
   },
   founded: "2007",
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/sawa-united-group/", icon: "linkedin" as const },
-    { label: "X", href: "https://x.com/sawaunitedgroup", icon: "x" as const },
-    { label: "Instagram", href: "https://www.instagram.com/sawaunitedgroup/", icon: "instagram" as const },
-  ],
+    {
+      id: "facebook",
+      code: "01",
+      label: "Facebook",
+      handle: "@Sawaunited.net",
+      shortUrl: "facebook.com/Sawaunited.net",
+      href: "https://www.facebook.com/Sawaunited.net",
+      icon: "facebook",
+      coordinates: "24°42′N · HQ",
+    },
+    {
+      id: "tiktok",
+      code: "02",
+      label: "TikTok",
+      handle: "@sawa.united",
+      shortUrl: "tiktok.com/@sawa.united",
+      href: "https://www.tiktok.com/@sawa.united",
+      icon: "tiktok",
+      coordinates: "09:16 · LIVE",
+    },
+    {
+      id: "instagram",
+      code: "03",
+      label: "Instagram",
+      handle: "@sawa.united.egypt",
+      shortUrl: "instagram.com/sawa.united.egypt",
+      href: "https://www.instagram.com/sawa.united.egypt",
+      icon: "instagram",
+      coordinates: "30°02′N · EG",
+    },
+  ] satisfies SocialChannel[],
 };
 
 export function whatsappLink(message?: string) {

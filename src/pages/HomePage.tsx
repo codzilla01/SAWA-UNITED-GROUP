@@ -6,6 +6,7 @@ import { Sectors } from "@/components/home/Sectors";
 import { ProjectsShowcase } from "@/components/home/ProjectsShowcase";
 import { Presence } from "@/components/home/Presence";
 import { Contact } from "@/components/home/Contact";
+import { SocialChannels } from "@/components/home/SocialChannels";
 
 export function HomePage() {
   const { t, locale } = useI18n();
@@ -26,6 +27,7 @@ export function HomePage() {
       <Presence />
       <Journey />
       <Contact />
+      <SocialChannels />
     </>
   );
 }

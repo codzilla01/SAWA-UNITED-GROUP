@@ -151,6 +151,22 @@ export function WhatsApp({ className = "", ...props }: IconProps) {
   );
 }
 
+export function Facebook({ className = "", ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true" {...props}>
+      <path d="M13.6 21v-8.1h2.75l.42-3.18H13.6V7.68c0-.92.26-1.55 1.58-1.55h1.68V3.29c-.29-.04-1.29-.13-2.46-.13-2.44 0-4.1 1.49-4.1 4.22v2.34H7.55v3.18h2.75V21h3.3Z" />
+    </svg>
+  );
+}
+
+export function TikTok({ className = "", ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true" {...props}>
+      <path d="M16.6 5.82A4.1 4.1 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.27 0 .53.04.77.12V9.66a5.74 5.74 0 0 0-.77-.05A5.68 5.68 0 0 0 4.18 15.3 5.68 5.68 0 0 0 15.54 15.3V9.01a7.16 7.16 0 0 0 4.19 1.34V7.26a4.1 4.1 0 0 1-3.13-1.44Z" />
+    </svg>
+  );
+}
+
 export function LinkedIn({ className = "", ...props }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true" {...props}>
@@ -175,6 +191,29 @@ export function XSocial({ className = "", ...props }: IconProps) {
       <path d="M17.4 3h3.3l-7.2 8.2L22 21h-6.6l-5.2-6.7L4.3 21H1l7.7-8.8L1.6 3h6.8l4.7 6.2L17.4 3Zm-1.2 16h1.8L7.6 4.8H5.7L16.2 19Z" />
     </svg>
   );
+}
+
+export function SocialOrbit({ className = "", ...props }: IconProps) {
+  return (
+    <svg {...base} className={className} {...props}>
+      <circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none" />
+      <circle cx="18.5" cy="6.5" r="1.8" />
+      <circle cx="5.8" cy="8" r="1.6" />
+      <circle cx="16.5" cy="18.2" r="1.7" />
+      <path d="m13.8 10.5 3.3-2.8M10 10.9 7.3 9M13.3 14l2.1 2.8" />
+    </svg>
+  );
+}
+
+export function socialIcon(id: string) {
+  const map = {
+    facebook: Facebook,
+    tiktok: TikTok,
+    instagram: Instagram,
+    linkedin: LinkedIn,
+    x: XSocial,
+  } as const;
+  return map[id as keyof typeof map] ?? Globe;
 }
 
 export function Car({ className = "", ...props }: IconProps) {

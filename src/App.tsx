@@ -4,6 +4,7 @@ import { useRoute } from "@/lib/router";
 import { whatsappLink } from "@/lib/site";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SocialDock } from "@/components/SocialDock";
 import { HomePage } from "@/pages/HomePage";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { PrivacyPage } from "@/pages/PrivacyPage";
@@ -50,6 +51,7 @@ function Shell() {
         {route === "notfound" && <NotFoundPage />}
       </main>
       <Footer />
+      <SocialDock route={route} />
       <FloatingWhatsApp />
     </div>
   );
