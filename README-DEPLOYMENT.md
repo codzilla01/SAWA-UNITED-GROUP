@@ -56,7 +56,7 @@ cp public/config.example.php public/config.php
 
 - `recipient` → `info@sawaunited.net`
 - `sender` → `noreply@sawaunited.net`
-- `whatsapp` → رقم واتساب الأعمال بالصيغة الدولية بدون `+` (مثال: `966551234567`)
+- `whatsapp` → رقم واتساب الأعمال بالصيغة الدولية بدون `+` (مثال: `201011225592`)
 
 `config.php` محمي من الوصول المباشر عبر `.htaccess`، ويُقرأ من PHP فقط. إن لم يوجد، يستخدم `contact.php` القيم الافتراضية.
 
@@ -116,4 +116,4 @@ cp public/config.example.php public/config.php
 
 ---
 
-Project contact placeholders in this build: `info@sawaunited.net` · `+966 55 123 4567`. استبدلهما ببيانات الأعمال الرسمية قبل الإطلاق.
+Project contact details in this build: `info@sawaunited.net` · `+20 10 1122 5592` (`01011225592`).

@@ -22,9 +22,9 @@ export const site = {
   url: "https://sawaunited.net",
   email: "info@sawaunited.net",
   outgoingEmail: "noreply@sawaunited.net",
-  phoneDisplay: "+966 55 123 4567",
-  phoneHref: "+966551234567",
-  whatsappNumber: "966551234567",
+  phoneDisplay: "+20 10 1122 5592",
+  phoneHref: "+201011225592",
+  whatsappNumber: "201011225592",
   address: {
     ar: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
     en: "King Fahd Road, Riyadh, Saudi Arabia",

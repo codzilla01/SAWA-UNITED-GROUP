@@ -18,7 +18,7 @@ return [
     'sender_name' => 'SAWA United Group Website',
 
     // WhatsApp fallback number in international format, digits only
-    'whatsapp' => '966551234567',
+    'whatsapp' => '201011225592',
 
     // Minimum seconds between two submissions from the same IP
     'rate_limit_seconds' => 45,
