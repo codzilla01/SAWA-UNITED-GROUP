@@ -160,7 +160,7 @@ export function Hero() {
 
             <dl className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-white/10 pt-6">
               {[
-                { value: "18+", label: t.stats.years },
+                { value: "12+", label: t.stats.years },
                 { value: "42", label: t.stats.projects },
                 { value: "06", label: t.stats.markets },
               ].map((stat) => (
@@ -173,7 +173,7 @@ export function Hero() {
                 </div>
               ))}
               <span className="ms-auto hidden text-[0.62rem] font-semibold tracking-[0.24em] text-[#f6f1e7]/30 xl:block" dir="ltr">
-                EST. 2007
+                EST. 2014
               </span>
             </dl>
           </div>

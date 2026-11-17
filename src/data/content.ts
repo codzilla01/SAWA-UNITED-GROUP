@@ -22,21 +22,21 @@ export const sectors: Sector[] = [
     company: "SAWA Motors",
     name: { ar: "السيارات", en: "Automotive", fr: "Automobile" },
     tagline: {
-      ar: "توزيع وبيع وخدمات ما بعد البيع",
-      en: "Distribution, retail & after-sales",
-      fr: "Distribution, vente & après-vente",
+      ar: "خدمات وتأجير السيارات في المغرب",
+      en: "Automotive & car rental in Morocco",
+      fr: "Automobile & location au Maroc",
     },
     description: {
-      ar: "نغطي سلسلة قيمة السيارات؛ من التوزيع والبيع بالتجزئة إلى خدمات ما بعد البيع والتمويل المرن، عبر شراكات مع علامات عالمية وفرق تفهم السوق المحلي.",
-      en: "We cover the automotive value chain — distribution, retail, after-sales and flexible financing — through partnerships with global marques and teams that understand the local market.",
-      fr: "Nous couvrons toute la chaîne de valeur automobile : distribution, vente, après-vente et financement flexible, grâce à des partenariats internationaux et des équipes ancrées localement.",
+      ar: "تتركّز أنشطة المجموعة في قطاع السيارات وإيجار السيارات حاليًا في دولة المغرب، حيث نُشغّل أسطولًا حديثًا للتأجير قصير وطويل الأمد وحلول التنقّل لقطاعَي الأفراد والشركات بمعايير صيانة وخدمة عالية.",
+      en: "Our automotive and car rental operations are currently anchored in Morocco — running a modern short- and long-term rental fleet and tailored mobility solutions for individuals and corporate clients.",
+      fr: "Nos activités automobiles et de location de voitures sont actuellement concentrées au Maroc, avec une flotte moderne en location courte et longue durée et des solutions de mobilité dédiées.",
     },
     capabilities: {
-      ar: ["التوزيع والوكلات", "خدمات ما بعد البيع", "التأجير والتمويل"],
-      en: ["Distribution & retail", "After-sales care", "Leasing & finance"],
-      fr: ["Distribution & vente", "Après-vente", "Leasing & financement"],
+      ar: ["إيجار السيارات في المغرب", "تأجير وإدارة الأساطيل", "التشغيل والصيانة الدورية"],
+      en: ["Car rental in Morocco", "Fleet leasing & management", "Operations & maintenance"],
+      fr: ["Location de voitures au Maroc", "Gestion & location de flotte", "Exploitation & maintenance"],
     },
-    metric: { ar: "12 معرضًا", en: "12 showrooms", fr: "12 showrooms" },
+    metric: { ar: "المغرب حاليًا", en: "Focused in Morocco", fr: "Concentré au Maroc" },
     image:
       "https://images.pexels.com/photos/26954167/pexels-photo-26954167.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     accent: "#c68a52",
@@ -46,21 +46,21 @@ export const sectors: Sector[] = [
     company: "SAWA Foods",
     name: { ar: "الغذاء", en: "Food", fr: "Alimentaire" },
     tagline: {
-      ar: "تصنيع وتوزيع غذائي موثوق",
-      en: "Trusted manufacturing & distribution",
-      fr: "Fabrication & distribution de confiance",
+      ar: "تصدير الحبوب والمواد الغذائية إقليميًا وعالميًا",
+      en: "Regional & global grain and food exports",
+      fr: "Export régional & mondial de céréales et denrées",
     },
     description: {
-      ar: "من المصدر إلى المائدة: نصنّع ونوزّع منتجات غذائية آمنة وعالية الجودة، مدعومة بسلاسل إمداد محلية وإقليمية قادرة على الصمود والتوسع.",
-      en: "From source to table — we manufacture and distribute safe, quality food, backed by resilient local and regional supply chains built to grow.",
-      fr: "De la source à la table : nous fabriquons et distribuons des produits sûrs et de qualité, grâce à des chaînes d'approvisionnement locales et régionales résilientes.",
+      ar: "نتخصص في تصدير الحبوب والمحاصيل الأساسية والمواد الغذائية المختلفة إقليميًا وعالميًا، مدعومين بشبكة توريد موثوقة ومعايير فحص جودة دقيقة وخطوط شحن تربط مراكز الإنتاج بالأسواق المستوردة.",
+      en: "We specialise in exporting grains, staple crops and diverse foodstuffs regionally and globally — supported by vetted sourcing networks, strict quality inspection and dependable international trade logistics.",
+      fr: "Nous sommes spécialisés dans l'exportation régionale et mondiale de céréales et de denrées alimentaires variées, soutenus par un approvisionnement rigoureux, un contrôle qualité strict et une logistique internationale fiable.",
     },
     capabilities: {
-      ar: ["التصنيع الغذائي", "سلاسل الإمداد", "العلامات التجارية"],
-      en: ["Food manufacturing", "Supply chain", "Consumer brands"],
-      fr: ["Fabrication", "Chaîne logistique", "Marques"],
+      ar: ["تصدير الحبوب والمحاصيل", "تصدير المواد الغذائية المتنوعة", "الشحن والتجارة الدولية"],
+      en: ["Grain & cereal exports", "Diverse foodstuff exports", "Regional & global shipping"],
+      fr: ["Exportation de céréales", "Denrées alimentaires variées", "Commerce & fret international"],
     },
-    metric: { ar: "3 مرافق إنتاج", en: "3 production sites", fr: "3 sites de production" },
+    metric: { ar: "تصدير إقليمي وعالمي", en: "Regional & global reach", fr: "Portée régionale & mondiale" },
     image:
       "https://images.pexels.com/photos/2889347/pexels-photo-2889347.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     accent: "#7d9b71",
@@ -70,21 +70,21 @@ export const sectors: Sector[] = [
     company: "SAWA Realty",
     name: { ar: "العقار", en: "Real Estate", fr: "Immobilier" },
     tagline: {
-      ar: "تطوير وإدارة أصول عقارية",
-      en: "Development & asset management",
-      fr: "Développement & gestion d'actifs",
+      ar: "أراضٍ في المغرب ووحدات سكنية بباقي الأسواق",
+      en: "Land in Morocco & residential units across markets",
+      fr: "Terrains au Maroc & unités résidentielles internationales",
     },
     description: {
-      ar: "نطوّر ونستثمر في وجهات سكنية وتجارية متكاملة، وندير أصولًا تُشغّل القيمة على المدى الطويل بما يتوافق مع احتياجات المجتمعات وأهداف المدن.",
-      en: "We develop and invest in integrated residential and commercial destinations, and manage assets that compound value over the long term — aligned with communities and city ambitions.",
-      fr: "Nous développons et investissons dans des destinations résidentielles et commerciales intégrées, et gérons des actifs qui créent de la valeur durable, au service des communautés.",
+      ar: "تجمع محفظتنا العقارية بين الاستثمار وتملّك الأراضي الاستراتيجية في دولة المغرب، وتوفير وإدارة وحدات سكنية متنوعة في باقي دول حضورنا في مصر وتركيا والإمارات والمجر والسعودية.",
+      en: "Our real estate portfolio combines strategic land holdings in Morocco with a diverse range of residential units across our other markets — Egypt, Türkiye, the UAE, Hungary and Saudi Arabia.",
+      fr: "Notre portefeuille immobilier allie des terrains stratégiques au Maroc et des unités résidentielles variées à travers nos autres marchés : Égypte, Turquie, Émirats arabes unis, Hongrie et Arabie saoudite.",
     },
     capabilities: {
-      ar: ["التطوير العقاري", "إدارة الأصول", "الاستثمار المشترك"],
-      en: ["Development", "Asset management", "Co-investment"],
-      fr: ["Développement", "Gestion d'actifs", "Co-investissement"],
+      ar: ["أراضٍ استثمارية في المغرب", "وحدات سكنية في باقي الدول", "إدارة وتنمية الأصول"],
+      en: ["Land portfolio in Morocco", "Residential units abroad", "Asset management"],
+      fr: ["Foncier au Maroc", "Unités résidentielles", "Gestion d'actifs"],
     },
-    metric: { ar: "1.4M م²", en: "1.4M m²", fr: "1,4M m²" },
+    metric: { ar: "أراضي المغرب + وحدات سكنية", en: "Morocco land + residential", fr: "Foncier Maroc + résidentiel" },
     image:
       "https://images.pexels.com/photos/566317/pexels-photo-566317.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     accent: "#8a9aa8",
@@ -94,21 +94,21 @@ export const sectors: Sector[] = [
     company: "SAWA Petroleum",
     name: { ar: "البترول", en: "Petroleum", fr: "Pétrole" },
     tagline: {
-      ar: "تجارة وخدمات طاقة",
-      en: "Trading & energy services",
-      fr: "Négoce & services énergétiques",
+      ar: "تشغيل وإدارة ناقلات البترول",
+      en: "Petroleum tankers & maritime oil transport",
+      fr: "Navires pétroliers & transport maritime",
     },
     description: {
-      ar: "نقدّم خدمات وتجارة في قطاع الطاقة تشمل تزويد الوقود والخدمات الصناعية وحلول الطاقة المساندة، لعملاء من القطاعين العام والخاص بمعايير سلامة صارمة.",
-      en: "We provide trading and services across the energy sector — fuel supply, industrial services and supporting energy solutions for public and private clients, under strict safety standards.",
-      fr: "Nous fournissons des services et du négoce dans l'énergie : approvisionnement en carburant, services industriels et solutions complémentaires, avec des standards de sécurité stricts.",
+      ar: "يتمثل نشاط المجموعة في قطاع البترول في ناقلات البترول؛ حيث ندير عمليات النقل والشحن البحري للنفط الخام والمشتقات البترولية عبر الممرات الإقليمية والدولية بأعلى معايير السلامة البحرية والامتثال الدولي.",
+      en: "Our petroleum sector focuses on petroleum tankers — operating and chartering crude and refined oil tankers across key regional and international maritime corridors under strict safety and compliance standards.",
+      fr: "Notre activité pétrolière repose sur les pétroliers : exploitation, affrètement et transport maritime de pétrole brut et de produits raffinés sur les routes régionales et internationales selon les plus hautes normes de sécurité.",
     },
     capabilities: {
-      ar: ["تزويد الوقود", "الخدمات الصناعية", "لوجستيات الطاقة"],
-      en: ["Fuel supply", "Industrial services", "Energy logistics"],
-      fr: ["Approvisionnement", "Services industriels", "Logistique énergétique"],
+      ar: ["ناقلات البترول الخام والمكرر", "التأجير والشحن البحري", "السلامة والامتثال البحري"],
+      en: ["Crude & product tankers", "Maritime chartering", "Safety & compliance"],
+      fr: ["Pétroliers brut & raffiné", "Affrètement maritime", "Sécurité & conformité"],
     },
-    metric: { ar: "9 منشآت", en: "9 terminals", fr: "9 terminaux" },
+    metric: { ar: "ناقلات بترول دولية", en: "Petroleum tanker fleet", fr: "Flotte de pétroliers" },
     image:
       "https://images.pexels.com/photos/5411674/pexels-photo-5411674.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     accent: "#c9a36b",
@@ -129,187 +129,227 @@ export type Project = {
   featured?: boolean;
 };
 
-const KSA = { ar: "المملكة العربية السعودية", en: "Saudi Arabia", fr: "Arabie saoudite" };
-const UAE = { ar: "الإمارات العربية المتحدة", en: "United Arab Emirates", fr: "Émirats arabes unis" };
 const EGY = { ar: "مصر", en: "Egypt", fr: "Égypte" };
-const QAT = { ar: "قطر", en: "Qatar", fr: "Qatar" };
 const TUR = { ar: "تركيا", en: "Türkiye", fr: "Turquie" };
-const FRA = { ar: "فرنسا", en: "France", fr: "France" };
+const MAR = { ar: "المغرب", en: "Morocco", fr: "Maroc" };
+const UAE = { ar: "الإمارات العربية المتحدة", en: "United Arab Emirates", fr: "Émirats arabes unis" };
+const HUN = { ar: "المجر", en: "Hungary", fr: "Hongrie" };
+const KSA = { ar: "المملكة العربية السعودية", en: "Saudi Arabia", fr: "Arabie saoudite" };
 
 export const projects: Project[] = [
   {
-    id: "mobility-hub",
+    id: "morocco-car-rental",
     sector: "automotive",
-    title: { ar: "مركز سوا للتنقّل", en: "SAWA Mobility Hub", fr: "SAWA Mobility Hub" },
-    summary: {
-      ar: "وجهة متعددة العلامات للسيارات تجمع المعارض وخدمات ما بعد البيع ومركز الابتكار في موقع واحد.",
-      en: "A multi-brand automotive destination bringing showrooms, after-sales and an innovation studio together in one place.",
-      fr: "Une destination automobile multimarque réunissant showrooms, après-vente et studio d'innovation.",
+    title: {
+      ar: "أسطول سوا لإيجار السيارات — المغرب",
+      en: "SAWA Car Rental Fleet — Morocco",
+      fr: "Flotte de location SAWA — Maroc",
     },
-    city: { ar: "الرياض", en: "Riyadh", fr: "Riyad" },
-    country: KSA,
-    year: "2025",
-    status: "development",
-    size: { ar: "34,000 م²", en: "34,000 m²", fr: "34 000 m²" },
+    summary: {
+      ar: "منظومة متكاملة لإيجار السيارات قصير وطويل الأمد في المغرب، تخدم الأفراد والشركات وقطاع الأعمال بأسطول حديث وصيانة دورية.",
+      en: "A dedicated short- and long-term car rental operation in Morocco serving individual travellers, executives and corporate clients with a modern fleet.",
+      fr: "Un service complet de location de voitures courte et longue durée au Maroc, au service des particuliers et des entreprises avec une flotte récente.",
+    },
+    city: { ar: "الدار البيضاء · المغرب", en: "Casablanca · Morocco", fr: "Casablanca · Maroc" },
+    country: MAR,
+    year: "2024",
+    status: "operating",
+    size: { ar: "تأجير يومي وتعاقدي", en: "Daily & long-term", fr: "Courte & longue durée" },
     image:
       "https://images.pexels.com/photos/26954167/pexels-photo-26954167.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     featured: true,
   },
   {
-    id: "west-retail",
+    id: "morocco-fleet-leasing",
     sector: "automotive",
-    title: { ar: "شبكة سوا للبيع بالتجزئة", en: "SAWA Auto Retail Network", fr: "Réseau SAWA Auto" },
-    summary: {
-      ar: "شبكة معارض وخدمات في المنطقة الغربية، مع تسليم وتأجير وبرامج تمويل مرنة.",
-      en: "A West Coast network of showrooms and service centres with delivery, leasing and flexible finance programmes.",
-      fr: "Un réseau de showrooms et centres de services sur la côte ouest, avec leasing et financement flexible.",
+    title: {
+      ar: "سوا لخدمات السيارات وتأجير الأساطيل",
+      en: "SAWA Mobility & Fleet Leasing",
+      fr: "SAWA Mobilité & Location de flotte",
     },
-    city: { ar: "جدة", en: "Jeddah", fr: "Djeddah" },
-    country: KSA,
+    summary: {
+      ar: "برامج تأجير سيارات مرنة وإدارة أساطيل للشركات والمؤسسات عبر المدن المغربية الرئيسية مع دعم تشغيلي متواصل.",
+      en: "Flexible corporate car rental and managed automotive fleet programmes across major Moroccan cities with continuous roadside and service support.",
+      fr: "Programmes flexibles de location automobile et gestion de flottes d'entreprise dans les grandes villes marocaines avec assistance continue.",
+    },
+    city: { ar: "مراكش والرباط · المغرب", en: "Marrakech & Rabat · Morocco", fr: "Marrakech & Rabat · Maroc" },
+    country: MAR,
     year: "2023",
     status: "operating",
-    size: { ar: "7 معارض", en: "7 showrooms", fr: "7 showrooms" },
+    size: { ar: "أسطول المغرب", en: "Morocco fleet", fr: "Flotte Maroc" },
     image:
       "https://images.pexels.com/photos/5050535/pexels-photo-5050535.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
   },
   {
-    id: "harvest-foods",
+    id: "global-grain-exports",
     sector: "food",
-    title: { ar: "مصانع سوا هارفست", en: "SAWA Harvest Foods", fr: "SAWA Harvest Foods" },
-    summary: {
-      ar: "منشأة تصنيع غذائي بثلاثة خطوط إنتاج، تخدم تجار التجزئة والجملة في المنطقة الشرقية.",
-      en: "A food manufacturing facility with three production lines serving retail and wholesale partners across the Eastern Province.",
-      fr: "Un site de fabrication alimentaire doté de trois lignes de production pour les partenaires de détail et de gros.",
+    title: {
+      ar: "منصّة سوا لتصدير الحبوب",
+      en: "SAWA Grain Export Platform",
+      fr: "Plateforme d'exportation céréalière SAWA",
     },
-    city: { ar: "الخبر", en: "Al Khobar", fr: "Al Khobar" },
-    country: KSA,
+    summary: {
+      ar: "توريد وفحص وتصدير الحبوب والمحاصيل الأساسية — القمح والذرة والبقوليات — إلى المستوردين وشركاء التوزيع إقليميًا وعالميًا.",
+      en: "Sourcing, quality-grading and exporting staple grains — wheat, maize and pulses — to importers and trade partners across regional and global markets.",
+      fr: "Approvisionnement, contrôle qualité et exportation de céréales de base — blé, maïs et légumineuses — vers les marchés régionaux et mondiaux.",
+    },
+    city: { ar: "القاهرة · مصر", en: "Cairo · Egypt", fr: "Le Caire · Égypte" },
+    country: EGY,
     year: "2024",
     status: "operating",
-    size: { ar: "18,000 م²", en: "18,000 m²", fr: "18 000 m²" },
+    size: { ar: "تصدير إقليمي وعالمي", en: "Regional & global", fr: "Régional & mondial" },
     image:
       "https://images.pexels.com/photos/2889347/pexels-photo-2889347.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     featured: true,
   },
   {
-    id: "farm-to-shelf",
+    id: "danube-grain-corridor",
     sector: "food",
-    title: { ar: "من المزرعة إلى الرف", en: "Farm to Shelf", fr: "De la ferme à l'étagère" },
-    summary: {
-      ar: "منظومة توزيع مبرّدة تربط المنتجين المحليين بشبكة تجزئة متنامية في القاهرة والدلتا.",
-      en: "A cold-chain distribution platform connecting local producers to a growing retail network across Cairo and the Delta.",
-      fr: "Une plateforme de distribution sous température dirigée reliant producteurs locaux et réseau de détail.",
+    title: {
+      ar: "ممر أوروبا الوسطى لتصدير الحبوب",
+      en: "Central Europe Grain Export Corridor",
+      fr: "Corridor céréalier d'Europe centrale",
     },
-    city: { ar: "القاهرة", en: "Cairo", fr: "Le Caire" },
-    country: EGY,
-    year: "2022",
+    summary: {
+      ar: "ربط إنتاج الحبوب والسلع الزراعية في المجر وأوروبا الوسطى بخطوط تصدير منتظمة نحو الشرق الأوسط وشمال أفريقيا والأسواق الدولية.",
+      en: "Connecting grain and agricultural commodity supply in Hungary and Central Europe with regular export routes into MENA and international markets.",
+      fr: "Liaison entre la production céréalière en Hongrie et des lignes d'exportation régulières vers le Moyen-Orient, l'Afrique du Nord et l'international.",
+    },
+    city: { ar: "بودابست · المجر", en: "Budapest · Hungary", fr: "Budapest · Hongrie" },
+    country: HUN,
+    year: "2023",
     status: "operating",
-    size: { ar: "4 مراكز", en: "4 hubs", fr: "4 hubs" },
+    size: { ar: "حبوب ومحاصيل", en: "Bulk grains", fr: "Céréales en vrac" },
     image:
       "https://images.pexels.com/photos/2889093/pexels-photo-2889093.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
   },
   {
-    id: "horizon-residences",
-    sector: "realestate",
-    title: { ar: "سوا هورايزون السكنية", en: "SAWA Horizon Residences", fr: "SAWA Horizon Residences" },
-    summary: {
-      ar: "مجتمع سكني متكامل يضم 220 وحدة ومرافق مجتمعية ومساحات خضراء، في شمال الرياض.",
-      en: "An integrated residential community of 220 homes with community facilities and green space in north Riyadh.",
-      fr: "Une communauté résidentielle de 220 logements avec équipements et espaces verts au nord de Riyad.",
+    id: "anatolia-food-exports",
+    sector: "food",
+    title: {
+      ar: "مركز سوا لتصدير المواد الغذائية",
+      en: "SAWA Foodstuffs Export Hub",
+      fr: "Hub d'exportation alimentaire SAWA",
     },
-    city: { ar: "الرياض", en: "Riyadh", fr: "Riyad" },
-    country: KSA,
-    year: "2026",
-    status: "development",
-    size: { ar: "220 وحدة", en: "220 homes", fr: "220 logements" },
+    summary: {
+      ar: "تصدير المواد الغذائية المختلفة من الدقيق والزيوت والبقوليات والأغذية الجافة المعبّأة عبر الموانئ التركية إلى الأسواق الإقليمية والعالمية.",
+      en: "Exporting diverse food products — flour, edible oils, pulses and packaged dry goods — through Turkish ports to regional and global buyers.",
+      fr: "Exportation de produits alimentaires variés — farines, huiles, légumineuses et denrées sèches — vers les acheteurs régionaux et internationaux.",
+    },
+    city: { ar: "إسطنبول · تركيا", en: "Istanbul · Türkiye", fr: "Istanbul · Turquie" },
+    country: TUR,
+    year: "2022",
+    status: "operating",
+    size: { ar: "شحن متعدد الأسواق", en: "Multi-market export", fr: "Export multimarché" },
     image:
-      "https://images.pexels.com/photos/30094324/pexels-photo-30094324.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      "https://images.pexels.com/photos/2889093/pexels-photo-2889093.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+  },
+  {
+    id: "morocco-land-portfolio",
+    sector: "realestate",
+    title: {
+      ar: "محفظة أراضي سوا — المغرب",
+      en: "SAWA Strategic Land Portfolio — Morocco",
+      fr: "Portefeuille foncier SAWA — Maroc",
+    },
+    summary: {
+      ar: "تملّك واستثمار وتهيئة أراضٍ عقارية استراتيجية في مواقع نمو مختارة بالمملكة المغربية ضمن رؤية استثمارية طويلة الأمد.",
+      en: "Acquiring, holding and preparing prime strategic land parcels across high-growth corridors in the Kingdom of Morocco for long-term value.",
+      fr: "Acquisition, détention et valorisation de terrains stratégiques situés dans des zones à fort potentiel au Royaume du Maroc.",
+    },
+    city: { ar: "الدار البيضاء وطنجة · المغرب", en: "Casablanca & Tangier · Morocco", fr: "Casablanca & Tanger · Maroc" },
+    country: MAR,
+    year: "2025",
+    status: "operating",
+    size: { ar: "أراضٍ استثمارية", en: "Strategic land", fr: "Réserves foncières" },
+    image:
+      "https://images.pexels.com/photos/40318841/pexels-photo-40318841.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     featured: true,
   },
   {
-    id: "corniche-quarter",
+    id: "gulf-residential-units",
     sector: "realestate",
-    title: { ar: "ربع الكورنيش للأعمال", en: "Corniche Business Quarter", fr: "Quartier d'affaires Corniche" },
-    summary: {
-      ar: "مبانٍ مكتبية وتجارية منخفضة الارتفاع حول ممر مشاة نابض، بإدارة أصول كاملة.",
-      en: "Low-rise offices and retail around an active pedestrian spine, under full asset management.",
-      fr: "Bureaux et commerces de faible hauteur autour d'une promenade active, entièrement gérés.",
+    title: {
+      ar: "وحدات سوا السكنية — السعودية والإمارات",
+      en: "SAWA Residential Units — KSA & UAE",
+      fr: "Unités résidentielles SAWA — Arabie & Émirats",
     },
-    city: { ar: "الدوحة", en: "Doha", fr: "Doha" },
-    country: QAT,
-    year: "2024",
+    summary: {
+      ar: "مجموعة متنوعة من الوحدات والشقق السكنية العصرية في الرياض ودبي بمواصفات تشطيب عالية وإدارة عقارية متكاملة.",
+      en: "A curated portfolio of modern residential apartments and family homes in Riyadh and Dubai with high-spec finishes and full property management.",
+      fr: "Un portefeuille d'appartements et d'unités résidentielles modernes à Riyad et Dubaï, avec finitions soignées et gestion complète.",
+    },
+    city: { ar: "الرياض ودبي", en: "Riyadh & Dubai", fr: "Riyad & Dubaï" },
+    country: KSA,
+    year: "2025",
     status: "operating",
-    size: { ar: "62,000 م²", en: "62,000 m²", fr: "62 000 m²" },
+    size: { ar: "وحدات سكنية متنوعة", en: "Residential units", fr: "Unités résidentielles" },
     image:
-      "https://images.pexels.com/photos/40318841/pexels-photo-40318841.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      "https://images.pexels.com/photos/30094324/pexels-photo-30094324.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
   },
   {
-    id: "energy-terminal",
-    sector: "petroleum",
-    title: { ar: "محطة سوا للطاقة", en: "SAWA Energy Terminal", fr: "Terminal énergétique SAWA" },
-    summary: {
-      ar: "منشأة تخزين وتوزيع وقود بمعايير سلامة متقدمة، تخدم العملاء الصناعيين والتجاريين في دبي.",
-      en: "A fuel storage and distribution terminal built to advanced safety standards, serving industrial and commercial clients in Dubai.",
-      fr: "Un terminal de stockage et de distribution de carburant aux normes de sécurité avancées à Dubaï.",
+    id: "eurasia-cairo-residences",
+    sector: "realestate",
+    title: {
+      ar: "وحدات سوا السكنية — مصر وتركيا والمجر",
+      en: "SAWA Residences — Egypt, Türkiye & Hungary",
+      fr: "Résidences SAWA — Égypte, Turquie & Hongrie",
     },
-    city: { ar: "دبي", en: "Dubai", fr: "Dubaï" },
+    summary: {
+      ar: "وحدات سكنية مختارة بمساحات وأنماط متعددة في القاهرة وإسطنبول وبودابست تجمع بين جودة الموقع والعائد المستدام.",
+      en: "Selected residential units across multiple layouts in Cairo, Istanbul and Budapest, pairing prime urban locations with enduring long-term value.",
+      fr: "Unités résidentielles variées au Caire, à Istanbul et à Budapest, alliant emplacements urbains recherchés et valeur durable.",
+    },
+    city: { ar: "القاهرة · إسطنبول · بودابست", en: "Cairo · Istanbul · Budapest", fr: "Le Caire · Istanbul · Budapest" },
+    country: EGY,
+    year: "2026",
+    status: "development",
+    size: { ar: "وحدات متعددة الأنماط", en: "Multi-type units", fr: "Logements variés" },
+    image:
+      "https://images.pexels.com/photos/566317/pexels-photo-566317.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+  },
+  {
+    id: "petroleum-tankers-fleet",
+    sector: "petroleum",
+    title: {
+      ar: "أسطول سوا لناقلات البترول",
+      en: "SAWA Petroleum Tankers Fleet",
+      fr: "Flotte de pétroliers SAWA",
+    },
+    summary: {
+      ar: "تشغيل وإدارة ناقلات بترول متخصصة في نقل النفط الخام والمشتقات البترولية عبر خطوط الملاحة الإقليمية والدولية بأعلى معايير الأمان البحري.",
+      en: "Operating and managing dedicated petroleum tankers carrying crude oil and refined products across regional and international shipping lanes.",
+      fr: "Exploitation et gestion de navires pétroliers dédiés au transport de brut et de produits raffinés sur les voies maritimes régionales et internationales.",
+    },
+    city: { ar: "دبي · الإمارات", en: "Dubai · UAE", fr: "Dubaï · Émirats" },
     country: UAE,
-    year: "2023",
+    year: "2024",
     status: "operating",
-    size: { ar: "4 خزانات", en: "4 tanks", fr: "4 réservoirs" },
+    size: { ar: "ناقلات بترول بحرية", en: "Maritime oil tankers", fr: "Pétroliers maritimes" },
     image:
       "https://images.pexels.com/photos/5411674/pexels-photo-5411674.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
     featured: true,
   },
   {
-    id: "gulf-fuel-logistics",
+    id: "med-gulf-tanker-chartering",
     sector: "petroleum",
-    title: { ar: "لوجستيات الوقود الخليجية", en: "Gulf Fuel Logistics", fr: "Logistique carburant du Golfe" },
-    summary: {
-      ar: "أسطول نقل وقود وخدمات تزويد ميدانية للمشروعات الإنشائية والمنشآت الصناعية.",
-      en: "A fuel transport fleet and on-site supply service for construction projects and industrial facilities.",
-      fr: "Une flotte de transport et un service d'approvisionnement sur site pour chantiers et industriels.",
+    title: {
+      ar: "عمليات تأجير وجدولة ناقلات البترول",
+      en: "Tanker Chartering & Maritime Operations",
+      fr: "Affrètement & opérations de pétroliers",
     },
-    city: { ar: "الدمام", en: "Dammam", fr: "Dammam" },
+    summary: {
+      ar: "تأجير وجدولة رحلات ناقلات البترول لربط موانئ الشحن والتفريغ بين الخليج العربي والبحر الأحمر والبحر المتوسط بانضباط تشغيلي صارم.",
+      en: "Voyage and time chartering of petroleum tankers connecting loading and discharge ports across the Arabian Gulf, Red Sea and Mediterranean.",
+      fr: "Affrètement et planification de pétroliers reliant les ports du Golfe, de la mer Rouge et de la Méditerranée avec une rigueur opérationnelle stricte.",
+    },
+    city: { ar: "السعودية وتركيا", en: "Saudi Arabia & Türkiye", fr: "Arabie saoudite & Turquie" },
     country: KSA,
-    year: "2021",
-    status: "delivered",
-    size: { ar: "24 شاحنة", en: "24 trucks", fr: "24 camions" },
-    image:
-      "https://images.pexels.com/photos/10396411/pexels-photo-10396411.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  },
-  {
-    id: "overseas-desk",
-    sector: "realestate",
-    title: { ar: "مكتب سوا الدولي", en: "SAWA Overseas Desk", fr: "Bureau SAWA International" },
-    summary: {
-      ar: "مكتب استثمار عقاري عابر للحدود يربط رؤوس الأموال الأوروبية بفرص نوعية في الخليج.",
-      en: "A cross-border real estate investment desk connecting European capital with quality Gulf opportunities.",
-      fr: "Un bureau d'investissement immobilier transfrontalier reliant les capitaux européens aux opportunités du Golfe.",
-    },
-    city: { ar: "باريس", en: "Paris", fr: "Paris" },
-    country: FRA,
-    year: "2025",
-    status: "operating",
-    size: { ar: "مكتب تمثيلي", en: "Representative office", fr: "Bureau de représentation" },
-    image:
-      "https://images.pexels.com/photos/30094324/pexels-photo-30094324.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  },
-  {
-    id: "anatolia-hub",
-    sector: "food",
-    title: { ar: "مركز أناضول للتوزيع", en: "Anatolia Distribution Hub", fr: "Hub de distribution Anatolie" },
-    summary: {
-      ar: "مركز إقليمي للتوزيع الغذائي يربط مصانع المجموعة بأسواق تركيا والبلقان.",
-      en: "A regional food distribution hub linking the group's production to Türkiye and Balkan markets.",
-      fr: "Un hub régional de distribution alimentaire reliant la production du groupe aux marchés turcs et balkaniques.",
-    },
-    city: { ar: "إسطنبول", en: "Istanbul", fr: "Istanbul" },
-    country: TUR,
     year: "2022",
     status: "operating",
-    size: { ar: "11,000 م²", en: "11,000 m²", fr: "11 000 m²" },
+    size: { ar: "خطوط شحن دولية", en: "International routes", fr: "Routes internationales" },
     image:
-      "https://images.pexels.com/photos/2889093/pexels-photo-2889093.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+      "https://images.pexels.com/photos/10396411/pexels-photo-10396411.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
   },
 ];
 
@@ -317,6 +357,7 @@ export type Market = {
   id: string;
   city: Localized;
   country: Localized;
+  detail?: Localized;
   lon: number;
   lat: number;
   role: "hq" | "regional" | "operations" | "representative";
@@ -327,67 +368,97 @@ export type Market = {
 export const markets: Market[] = [
   {
     id: "cairo",
-    city: {
-      ar: "الشيخ زايد · 6 أكتوبر",
-      en: "El Sheikh Zayed · 6 October",
-      fr: "El Sheikh Zayed · 6 Octobre",
+    city: { ar: "القاهرة", en: "Cairo", fr: "Le Caire" },
+    country: {
+      ar: "مصر · مدينة الشيخ زايد، 6 أكتوبر",
+      en: "Egypt · El Sheikh Zayed, 6 October City",
+      fr: "Égypte · El Sheikh Zayed, Cité du 6 Octobre",
     },
-    country: EGY,
-    lon: 30.9718,
+    detail: {
+      ar: "المركز الرئيسي للمجموعة (حديثًا) — إدارة القطاعات، تصدير الحبوب والأغذية، والوحدات السكنية.",
+      en: "Newly established main headquarters — group leadership, grain & food exports, and residential units.",
+      fr: "Nouveau siège principal du groupe — direction générale, exportation alimentaire et unités résidentielles.",
+    },
+    lon: 31.2357,
     lat: 30.0444,
     role: "hq",
-    since: "2007",
-    focus: ["automotive", "food", "realestate", "petroleum"],
+    since: "2014",
+    focus: ["food", "realestate", "petroleum", "automotive"],
   },
   {
-    id: "riyadh",
-    city: { ar: "الرياض", en: "Riyadh", fr: "Riyad" },
-    country: { ar: "المملكة العربية السعودية", en: "Saudi Arabia", fr: "Arabie saoudite" },
-    lon: 46.6753,
-    lat: 24.7136,
+    id: "turkey",
+    city: { ar: "تركيا", en: "Türkiye", fr: "Turquie" },
+    country: { ar: "إسطنبول", en: "Istanbul", fr: "Istanbul" },
+    detail: {
+      ar: "تصدير الحبوب والمواد الغذائية، وحدات سكنية متنوعة، وخطوط شحن ناقلات البترول.",
+      en: "Grain and foodstuff exports, diverse residential units, and petroleum tanker shipping corridors.",
+      fr: "Exportation de céréales et denrées, unités résidentielles variées et corridors de pétroliers.",
+    },
+    lon: 28.9784,
+    lat: 41.0082,
     role: "regional",
-    since: "2012",
-    focus: ["automotive", "food", "realestate"],
+    since: "2019",
+    focus: ["food", "realestate", "petroleum"],
   },
   {
-    id: "dubai",
-    city: { ar: "دبي", en: "Dubai", fr: "Dubaï" },
-    country: UAE,
+    id: "morocco",
+    city: { ar: "المغرب", en: "Morocco", fr: "Maroc" },
+    country: { ar: "الدار البيضاء · مراكش · طنجة", en: "Casablanca · Marrakech · Tangier", fr: "Casablanca · Marrakech · Tanger" },
+    detail: {
+      ar: "المركز الحصري لأنشطة السيارات وإيجار السيارات حاليًا، إلى جانب محفظة الأراضي العقارية.",
+      en: "Exclusive hub for our automotive and car rental operations today, alongside strategic land holdings.",
+      fr: "Pôle actuel dédié à l'automobile et à la location de voitures, ainsi qu'à notre portefeuille de terrains.",
+    },
+    lon: -7.5898,
+    lat: 33.5731,
+    role: "operations",
+    since: "2020",
+    focus: ["automotive", "realestate"],
+  },
+  {
+    id: "uae",
+    city: { ar: "الإمارات", en: "UAE", fr: "Émirats arabes unis" },
+    country: { ar: "دبي", en: "Dubai", fr: "Dubaï" },
+    detail: {
+      ar: "إدارة وتشغيل ناقلات البترول، وحدات سكنية مختارة، وتجارة وتصدير المواد الغذائية.",
+      en: "Petroleum tanker operations and chartering, residential units, and international food export trade.",
+      fr: "Exploitation et affrètement de pétroliers, unités résidentielles et commerce alimentaire international.",
+    },
     lon: 55.2708,
     lat: 25.2048,
     role: "regional",
-    since: "2015",
-    focus: ["petroleum", "automotive", "realestate"],
+    since: "2017",
+    focus: ["petroleum", "realestate", "food"],
   },
   {
-    id: "doha",
-    city: { ar: "الدوحة", en: "Doha", fr: "Doha" },
-    country: QAT,
-    lon: 51.531,
-    lat: 25.2854,
-    role: "regional",
-    since: "2020",
-    focus: ["realestate", "petroleum"],
-  },
-  {
-    id: "istanbul",
-    city: { ar: "إسطنبول", en: "Istanbul", fr: "Istanbul" },
-    country: TUR,
-    lon: 28.9784,
-    lat: 41.0082,
+    id: "hungary",
+    city: { ar: "المجر", en: "Hungary", fr: "Hongrie" },
+    country: { ar: "بودابست", en: "Budapest", fr: "Budapest" },
+    detail: {
+      ar: "تصدير الحبوب والسلع الغذائية الأوروبية إقليميًا وعالميًا، ومحفظة وحدات سكنية.",
+      en: "Exporting Central European grains and foodstuffs regionally and globally, plus residential units.",
+      fr: "Exportation de céréales et produits alimentaires d'Europe centrale et unités résidentielles.",
+    },
+    lon: 19.0402,
+    lat: 47.4979,
     role: "operations",
-    since: "2021",
-    focus: ["food", "automotive"],
+    since: "2022",
+    focus: ["food", "realestate"],
   },
   {
-    id: "paris",
-    city: { ar: "باريس", en: "Paris", fr: "Paris" },
-    country: FRA,
-    lon: 2.3522,
-    lat: 48.8566,
-    role: "representative",
-    since: "2025",
-    focus: ["realestate"],
+    id: "saudi",
+    city: { ar: "السعودية", en: "Saudi Arabia", fr: "Arabie saoudite" },
+    country: { ar: "الرياض · جدة", en: "Riyadh · Jeddah", fr: "Riyad · Djeddah" },
+    detail: {
+      ar: "وحدات سكنية متنوعة، توريد وتصدير المواد الغذائية والحبوب، وعمليات ناقلات البترول.",
+      en: "Diverse residential units, grain and food commodity trade, and petroleum tanker operations.",
+      fr: "Unités résidentielles variées, commerce de céréales et denrées, et opérations de pétroliers.",
+    },
+    lon: 46.6753,
+    lat: 24.7136,
+    role: "regional",
+    since: "2015",
+    focus: ["realestate", "food", "petroleum"],
   },
 ];
 
@@ -438,7 +509,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
         title: "حقوقك",
         body: [
           "يحق لك طلب الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على معالجتها، وذلك وفقًا للقوانين والأنظمة المعمول بها في جمهورية مصر العربية.",
-          "للممارسة هذه الحقوق، راسلنا على info@sawa-united.net وسنستجيب خلال المدة النظامية.",
+          "لممارسة هذه الحقوق، راسلنا على info@sawa-united.net وسنستجيب خلال المدة النظامية.",
         ],
       },
       {
@@ -450,7 +521,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "التواصل معنا",
         body: [
-          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawa-united.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر.",
+          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawa-united.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، مدينة الشيخ زايد، مدينة 6 أكتوبر، القاهرة، مصر.",
         ],
       },
     ],
@@ -511,7 +582,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "Contact us",
         body: [
-          "For any privacy or data-protection question, write to info@sawa-united.net or to our headquarters: SAWA United Group, El Sheikh Zayed City, 6 October City, Egypt.",
+          "For any privacy or data-protection question, write to info@sawa-united.net or to our headquarters: SAWA United Group, El Sheikh Zayed City, 6 October City, Cairo, Egypt.",
         ],
       },
     ],
@@ -519,7 +590,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
 };
 
 export const numberOfStats = {
-  years: 18,
+  years: 12,
   projects: 42,
   markets: 6,
   people: 850,

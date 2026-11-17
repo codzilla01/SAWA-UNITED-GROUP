@@ -26,17 +26,18 @@ const pathGenerator = geoPath(projection);
 const landPath = pathGenerator(landFeature) ?? "";
 const graticulePath = pathGenerator(geoGraticule10()) ?? "";
 
-// Small visual offsets keep neighbouring Gulf markers easy to click on the world map.
+// Subtle visual offsets keep neighbouring markers crisp and easy to click on the world map.
 const markerOffsets: Record<string, { x: number; y: number }> = {
-  cairo: { x: 0, y: 0 },
-  riyadh: { x: -4, y: 8 },
-  dubai: { x: 22, y: -20 },
-  doha: { x: -6, y: 18 },
-  istanbul: { x: 14, y: -10 },
-  paris: { x: -12, y: -14 },
+  cairo: { x: -4, y: 2 },
+  turkey: { x: 10, y: -6 },
+  morocco: { x: -8, y: 2 },
+  uae: { x: 16, y: -4 },
+  hungary: { x: -8, y: -12 },
+  saudi: { x: 2, y: 12 },
 };
 
 const HQ = markets[0];
+const hqSvgPoint = projection([HQ.lon, HQ.lat]) ?? [400, 200];
 
 function arcPath(from: Market, to: Market) {
   const interpolate = geoInterpolate([from.lon, from.lat], [to.lon, to.lat]);
@@ -65,12 +66,13 @@ export function Presence() {
   const { t, locale, dir } = useI18n();
   const [activeId, setActiveId] = useState("cairo");
   const active = markets.find((market) => market.id === activeId) ?? markets[0];
+  const isActiveHq = active.role === "hq";
 
   const roleLabels: Record<Market["role"], string> = {
     hq: t.presence.hqNote,
-    regional: locale === "ar" ? "مكتب إقليمي" : locale === "fr" ? "Bureau régional" : "Regional office",
+    regional: locale === "ar" ? "سوق إقليمي" : locale === "fr" ? "Marché régional" : "Regional market",
     operations:
-      locale === "ar" ? "عمليات تشغيل" : locale === "fr" ? "Opérations" : "Operations",
+      locale === "ar" ? "عمليات تشغيلية" : locale === "fr" ? "Opérations" : "Active operations",
     representative:
       locale === "ar" ? "مكتب تمثيلي" : locale === "fr" ? "Bureau de représentation" : "Representative office",
   };
@@ -89,12 +91,12 @@ export function Presence() {
             <p className="mt-4 max-w-xl text-[0.94rem] leading-relaxed text-[#f6f1e7]/60">{t.presence.lead}</p>
           </Reveal>
           <Reveal delay={100} className="shrink-0">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2">
+            <div className="inline-flex items-center gap-3 rounded-full border border-[#2dd4bf]/30 bg-[#2dd4bf]/[0.07] px-4 py-2">
               <span className="relative flex h-2 w-2">
-                <span className="anim-ping absolute inline-flex h-full w-full rounded-full bg-accent" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                <span className="anim-ping absolute inline-flex h-full w-full rounded-full bg-[#2dd4bf]" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2dd4bf]" />
               </span>
-              <span className="text-[0.68rem] font-semibold tracking-[0.08em] text-[#f6f1e7]/75">{t.presence.note}</span>
+              <span className="text-[0.68rem] font-semibold tracking-[0.06em] text-[#f6f1e7]/85">{t.presence.note}</span>
             </div>
           </Reveal>
         </div>
@@ -104,10 +106,10 @@ export function Presence() {
             <div className="relative overflow-hidden rounded-[26px] border border-white/12 bg-[#051b16]/70 p-3 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] sm:p-5">
               <div className="flex items-center justify-between px-1 pb-2 sm:px-2">
                 <p className="text-[0.6rem] font-bold uppercase tracking-[0.22em] text-[#f6f1e7]/40">
-                  {locale === "ar" ? "خريطة العمليات" : locale === "fr" ? "Carte des opérations" : "Operations map"}
+                  {locale === "ar" ? "خريطة الأسواق والمركز الرئيسي" : locale === "fr" ? "Carte du siège & des marchés" : "Headquarters & markets map"}
                 </p>
                 <p className="text-[0.6rem] font-semibold tracking-[0.16em] text-accent" dir="ltr">
-                  06 / {String(markets.length).padStart(2, "0")}
+                  {String(markets.findIndex((item) => item.id === active.id) + 1).padStart(2, "0")} / {String(markets.length).padStart(2, "0")}
                 </p>
               </div>
 
@@ -121,22 +123,39 @@ export function Presence() {
                 >
                   <path d={graticulePath} fill="none" stroke="#f6f1e7" strokeOpacity="0.055" strokeWidth="0.7" />
                   <path d={landPath} fill="#f6f1e7" fillOpacity="0.14" stroke="#f6f1e7" strokeOpacity="0.24" strokeWidth="0.8" />
-                  {arcs.map((arc) => (
-                    <path
-                      key={arc.id}
-                      d={arc.path}
-                      fill="none"
-                      stroke="#d8a06a"
-                      strokeOpacity={activeId === arc.id ? 0.95 : 0.4}
-                      strokeWidth={activeId === arc.id ? 1.5 : 1}
-                      className="map-arc"
-                    />
-                  ))}
+                  {/* Distinct concentric beacon ring highlighting Cairo Main HQ */}
+                  <circle
+                    cx={hqSvgPoint[0]}
+                    cy={hqSvgPoint[1]}
+                    r="18"
+                    fill="#2dd4bf"
+                    fillOpacity="0.09"
+                    stroke="#2dd4bf"
+                    strokeOpacity="0.42"
+                    strokeWidth="0.9"
+                    strokeDasharray="3 4"
+                  />
+                  {arcs.map((arc) => {
+                    const highlighted = activeId === arc.id || isActiveHq;
+                    return (
+                      <path
+                        key={arc.id}
+                        d={arc.path}
+                        fill="none"
+                        stroke={activeId === arc.id ? "#d8a06a" : isActiveHq ? "#2dd4bf" : "#d8a06a"}
+                        strokeOpacity={activeId === arc.id ? 0.95 : highlighted ? 0.55 : 0.35}
+                        strokeWidth={activeId === arc.id ? 1.6 : 1.05}
+                        className="map-arc"
+                      />
+                    );
+                  })}
                 </svg>
 
                 {markers.map(({ market, x, y, offset }) => {
                   const isActive = market.id === activeId;
-                  const showLabel = isActive || market.role === "hq";
+                  const isHq = market.role === "hq";
+                  const showLabel = isActive || isHq;
+
                   return (
                     <button
                       key={market.id}
@@ -145,59 +164,92 @@ export function Presence() {
                       onMouseEnter={() => setActiveId(market.id)}
                       aria-label={`${market.city[locale]} — ${roleLabels[market.role]}`}
                       aria-pressed={isActive}
-                      className="group absolute -translate-x-1/2 -translate-y-1/2"
+                      className={cn(
+                        "group absolute -translate-x-1/2 -translate-y-1/2",
+                        isActive ? "z-30" : isHq ? "z-20" : "z-10",
+                      )}
                       style={{ left: `${x}%`, top: `${y}%` }}
                     >
                       <span
                         className="relative flex items-center justify-center"
                         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
                       >
-                        {isActive && <span className="anim-ping absolute h-5 w-5 rounded-full bg-accent/40" />}
-                        <span
-                          className={cn(
-                            "flex items-center justify-center rounded-full border transition-all duration-300",
-                            isActive
-                              ? "h-4 w-4 border-[#f6f1e7] bg-accent shadow-[0_0_0_4px_rgba(216,160,106,0.22)]"
-                              : market.role === "hq"
-                                ? "h-3 w-3 border-[#f6f1e7]/80 bg-[#f6f1e7]"
-                                : "h-2.5 w-2.5 border-[#f6f1e7]/60 bg-[#0a2b24] group-hover:border-accent group-hover:bg-accent",
-                          )}
-                        >
-                          <span className={cn("rounded-full", isActive ? "h-1 w-1 bg-[#181310]" : "hidden")} />
-                        </span>
+                        {isHq ? (
+                          <>
+                            <span className="anim-ping absolute h-6 w-6 rounded-full bg-[#2dd4bf]/45" />
+                            <span
+                              className={cn(
+                                "flex items-center justify-center rounded-full border-2 border-[#f6f1e7] bg-[#2dd4bf] transition-all duration-300",
+                                isActive
+                                  ? "h-4.5 w-4.5 shadow-[0_0_0_5px_rgba(45,212,191,0.32),0_0_18px_rgba(45,212,191,0.65)]"
+                                  : "h-4 w-4 shadow-[0_0_0_4px_rgba(45,212,191,0.22)]",
+                              )}
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#04241e]" />
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            {isActive && <span className="anim-ping absolute h-5 w-5 rounded-full bg-accent/45" />}
+                            <span
+                              className={cn(
+                                "flex items-center justify-center rounded-full border transition-all duration-300",
+                                isActive
+                                  ? "h-4 w-4 border-[#f6f1e7] bg-[#d8a06a] shadow-[0_0_0_4px_rgba(216,160,106,0.26)]"
+                                  : "h-3 w-3 border-[#d8a06a]/85 bg-[#d8a06a]/75 group-hover:scale-110 group-hover:border-[#f6f1e7] group-hover:bg-[#d8a06a]",
+                              )}
+                            >
+                              <span className={cn("rounded-full", isActive ? "h-1 w-1 bg-[#181310]" : "hidden")} />
+                            </span>
+                          </>
+                        )}
                       </span>
+
                       {showLabel && (
                         <span
-                          className="pointer-events-none absolute start-1/2 top-0 z-10 flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border border-white/20 bg-[#082a23]/95 px-2.5 py-1 text-[0.58rem] font-semibold text-[#f6f1e7] shadow-lg backdrop-blur-sm rtl:translate-x-1/2"
+                          className={cn(
+                            "pointer-events-none absolute start-1/2 top-0 flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border px-2.5 py-1 text-[0.58rem] font-semibold shadow-lg backdrop-blur-sm rtl:translate-x-1/2",
+                            isHq
+                              ? "border-[#2dd4bf]/65 bg-[#052924]/95 text-[#f6f1e7]"
+                              : "border-[#d8a06a]/45 bg-[#082a23]/95 text-[#f6f1e7]",
+                          )}
                           style={{
-                            transform: `translate(calc(${dir === "rtl" ? "50%" : "-50%"} + ${offset.x}px), calc(-100% + ${offset.y - 10}px))`,
+                            transform: `translate(calc(${dir === "rtl" ? "50%" : "-50%"} + ${offset.x}px), ${
+                              isHq ? `calc(100% + ${offset.y + 4}px)` : `calc(-100% + ${offset.y - 10}px)`
+                            })`,
                           }}
                         >
-                          <MapPin className="h-2.5 w-2.5 text-accent" />
+                          <MapPin className={cn("h-2.5 w-2.5", isHq ? "text-[#2dd4bf]" : "text-[#d8a06a]")} />
                           {market.city[locale]}
-                          {market.role === "hq" && <span className="text-accent">· HQ</span>}
+                          {isHq && <span className="font-bold text-[#5eead4]">· HQ</span>}
                         </span>
                       )}
                     </button>
                   );
                 })}
 
-                <div className="pointer-events-none absolute bottom-3 start-3 flex items-center gap-3 rounded-full border border-white/10 bg-[#051b16]/80 px-3 py-1.5 backdrop-blur-sm">
-                  <span className="flex items-center gap-1.5 text-[0.55rem] font-semibold text-[#f6f1e7]/60">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {t.presence.hqNote}
+                <div className="pointer-events-none absolute bottom-3 start-3 flex flex-wrap items-center gap-3 rounded-full border border-white/12 bg-[#051b16]/85 px-3 py-1.5 backdrop-blur-sm">
+                  <span className="flex items-center gap-1.5 text-[0.56rem] font-semibold text-[#99f6e4]">
+                    <span className="h-2 w-2 rounded-full bg-[#2dd4bf] shadow-[0_0_8px_rgba(45,212,191,0.8)]" />
+                    {HQ.city[locale]} · {t.presence.hqNote}
                   </span>
                   <span className="h-2.5 w-px bg-white/15" />
-                  <span className="flex items-center gap-1.5 text-[0.55rem] font-semibold text-[#f6f1e7]/60">
-                    <span className="h-1.5 w-1.5 rounded-full border border-[#f6f1e7]/60" />
-                    {roleLabels.operations}
+                  <span className="flex items-center gap-1.5 text-[0.56rem] font-semibold text-[#f6f1e7]/70">
+                    <span className="h-2 w-2 rounded-full bg-[#d8a06a]" />
+                    {locale === "ar" ? "الأسواق الخمسة" : locale === "fr" ? "5 marchés actifs" : "5 active markets"}
                   </span>
                 </div>
               </div>
 
               <div className="mt-2 flex flex-wrap items-center justify-between gap-2 px-1 text-[0.58rem] text-[#f6f1e7]/35 sm:px-2">
-                <span dir="ltr">EMEA · 30°N 31°E</span>
-                <span>{locale === "ar" ? "اضغط على أي موقع لاستعراض تفاصيله" : locale === "fr" ? "Sélectionnez un marché pour ses détails" : "Select any market to explore it"}</span>
+                <span dir="ltr">CAIRO HQ · 30°N 31°E</span>
+                <span>
+                  {locale === "ar"
+                    ? "اضغط على أي دولة لاستعراض أنشطة المجموعة فيها"
+                    : locale === "fr"
+                      ? "Sélectionnez un marché pour voir ses activités"
+                      : "Select any market to view its activities"}
+                </span>
               </div>
             </div>
           </Reveal>
@@ -207,6 +259,8 @@ export function Presence() {
               <ul className="divide-y divide-white/8">
                 {markets.map((market, index) => {
                   const isActive = market.id === activeId;
+                  const isHq = market.role === "hq";
+
                   return (
                     <li key={market.id}>
                       <button
@@ -214,36 +268,57 @@ export function Presence() {
                         onClick={() => setActiveId(market.id)}
                         aria-pressed={isActive}
                         className={cn(
-                          "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-start transition-colors duration-300",
-                          isActive ? "bg-white/[0.07]" : "hover:bg-white/[0.04]",
+                          "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-start transition-all duration-300",
+                          isHq
+                            ? isActive
+                              ? "bg-[#2dd4bf]/[0.14] ring-1 ring-[#2dd4bf]/45"
+                              : "bg-[#2dd4bf]/[0.06] hover:bg-[#2dd4bf]/[0.11]"
+                            : isActive
+                              ? "bg-white/[0.08] ring-1 ring-[#d8a06a]/30"
+                              : "hover:bg-white/[0.04]",
                         )}
                       >
                         <span
                           className={cn(
                             "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[0.56rem] font-bold transition-colors",
-                            isActive ? "border-accent bg-accent text-[#181310]" : "border-white/15 text-[#f6f1e7]/45",
+                            isHq
+                              ? "border-[#2dd4bf] bg-[#2dd4bf] text-[#04241e] shadow-[0_0_14px_-2px_rgba(45,212,191,0.65)]"
+                              : isActive
+                                ? "border-[#d8a06a] bg-[#d8a06a] text-[#181310]"
+                                : "border-white/15 text-[#f6f1e7]/50 group-hover:border-[#d8a06a]/50",
                           )}
                           dir="ltr"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="flex items-baseline gap-2">
-                            <span className={cn("text-[0.86rem] font-semibold", isActive ? "text-[#f6f1e7]" : "text-[#f6f1e7]/80")}>
+                          <span className="flex items-center gap-2">
+                            <span
+                              className={cn(
+                                "text-[0.86rem] font-semibold",
+                                isHq ? "text-[#99f6e4]" : isActive ? "text-[#f6f1e7]" : "text-[#f6f1e7]/80",
+                              )}
+                            >
                               {market.city[locale]}
                             </span>
-                            {market.role === "hq" && (
-                              <span className="rounded-full bg-accent/15 px-1.5 py-0.5 text-[0.48rem] font-bold tracking-[0.12em] text-accent">
-                                HQ
+                            {isHq && (
+                              <span className="rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/15 px-2 py-0.5 text-[0.5rem] font-bold tracking-[0.08em] text-[#5eead4]">
+                                {t.presence.hqNote}
                               </span>
                             )}
                           </span>
-                          <span className="mt-0.5 block truncate text-[0.62rem] text-[#f6f1e7]/40">{roleLabels[market.role]}</span>
+                          <span className="mt-0.5 block truncate text-[0.62rem] text-[#f6f1e7]/45">
+                            {market.country[locale]}
+                          </span>
                         </span>
                         <ArrowUpRight
                           className={cn(
                             "arrow-flip h-3.5 w-3.5 transition-all duration-300",
-                            isActive ? "text-accent" : "text-[#f6f1e7]/25 group-hover:text-accent",
+                            isHq
+                              ? "text-[#2dd4bf]"
+                              : isActive
+                                ? "text-[#d8a06a]"
+                                : "text-[#f6f1e7]/25 group-hover:text-[#d8a06a]",
                           )}
                         />
                       </button>
@@ -253,21 +328,56 @@ export function Presence() {
               </ul>
             </div>
 
-            <div key={active.id} className="anim-rise flex-1 rounded-2xl border border-accent/25 bg-accent/[0.07] p-5">
-              <p className="text-[0.56rem] font-bold uppercase tracking-[0.22em] text-accent">{t.presence.selectedLabel}</p>
+            <div
+              key={active.id}
+              className={cn(
+                "anim-rise flex-1 rounded-2xl border p-5 transition-colors",
+                isActiveHq
+                  ? "border-[#2dd4bf]/35 bg-[#2dd4bf]/[0.08]"
+                  : "border-accent/25 bg-accent/[0.07]",
+              )}
+            >
+              <p
+                className={cn(
+                  "text-[0.56rem] font-bold uppercase tracking-[0.22em]",
+                  isActiveHq ? "text-[#5eead4]" : "text-accent",
+                )}
+              >
+                {isActiveHq ? t.presence.hqNote : t.presence.selectedLabel}
+              </p>
               <div className="mt-2.5 flex items-start justify-between gap-2">
                 <div>
                   <h3 className="text-[1.25rem] font-semibold text-[#f6f1e7]">{active.city[locale]}</h3>
-                  <p className="mt-0.5 text-[0.7rem] text-[#f6f1e7]/50">{active.country[locale]}</p>
+                  <p className="mt-0.5 text-[0.7rem] text-[#f6f1e7]/60">{active.country[locale]}</p>
                 </div>
-                <span className="rounded-full border border-white/15 px-2.5 py-1 text-[0.56rem] font-semibold text-[#f6f1e7]/60">
-                  {t.common.since} <span dir="ltr">{active.since}</span>
+                <span
+                  className={cn(
+                    "shrink-0 rounded-full border px-2.5 py-1 text-[0.56rem] font-semibold",
+                    isActiveHq
+                      ? "border-[#2dd4bf]/40 bg-[#2dd4bf]/12 text-[#99f6e4]"
+                      : "border-white/15 text-[#f6f1e7]/65",
+                  )}
+                >
+                  {isActiveHq
+                    ? locale === "ar"
+                      ? "مقر رئيسي حديث · منذ 2014"
+                      : locale === "fr"
+                        ? "Nouveau siège · depuis 2014"
+                        : "New HQ · Est. 2014"
+                    : (
+                      <>
+                        {t.common.since} <span dir="ltr">{active.since}</span>
+                      </>
+                    )}
                 </span>
               </div>
-              <p className="mt-3 inline-flex items-center gap-1.5 text-[0.64rem] font-medium text-[#f6f1e7]/60">
-                <MapPin className="h-3 w-3 text-accent" />
-                {roleLabels[active.role]}
-              </p>
+
+              {active.detail && (
+                <p className="mt-3 text-[0.74rem] leading-relaxed text-[#f6f1e7]/72">
+                  {active.detail[locale]}
+                </p>
+              )}
+
               <p className="mt-4 text-[0.56rem] font-bold uppercase tracking-[0.2em] text-[#f6f1e7]/35">{t.presence.focus}</p>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {active.focus.map((focusId) => {
@@ -277,14 +387,15 @@ export function Presence() {
                   return (
                     <span
                       key={focusId}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.05] px-2.5 py-1 text-[0.62rem] text-[#f6f1e7]/75"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.05] px-2.5 py-1 text-[0.62rem] text-[#f6f1e7]/80"
                     >
-                      <Icon className="h-3 w-3 text-accent" />
+                      <Icon className={cn("h-3 w-3", isActiveHq ? "text-[#2dd4bf]" : "text-accent")} />
                       {sector.name[locale]}
                     </span>
                   );
                 })}
               </div>
+
               {active.id === "cairo" && (() => {
                 const egyptSocial = site.socials.find((item) => item.id === "instagram");
                 if (!egyptSocial) return null;
@@ -293,23 +404,27 @@ export function Presence() {
                     href={egyptSocial.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group mt-3.5 flex items-center justify-between rounded-xl border border-accent/35 bg-accent/12 px-3 py-2 text-[0.66rem] text-[#f6f1e7] transition-colors hover:border-accent hover:bg-accent hover:text-[#181310]"
+                    className="group mt-3.5 flex items-center justify-between rounded-xl border border-[#2dd4bf]/35 bg-[#2dd4bf]/12 px-3 py-2 text-[0.66rem] text-[#f6f1e7] transition-colors hover:border-[#2dd4bf] hover:bg-[#2dd4bf] hover:text-[#04241e]"
                   >
                     <span className="inline-flex items-center gap-2 font-semibold">
                       <Instagram className="h-3.5 w-3.5 shrink-0" />
                       <span>{t.social.egyptBadge}</span>
                     </span>
-                    <span dir="ltr" className="inline-flex items-center gap-1 font-bold opacity-80">
+                    <span dir="ltr" className="inline-flex items-center gap-1 font-bold opacity-85">
                       {egyptSocial.handle}
                       <ArrowUpRight className="h-3 w-3" />
                     </span>
                   </a>
                 );
               })()}
+
               <button
                 type="button"
                 onClick={() => navigateTo("home", "contact")}
-                className="group mt-4 flex w-full items-center justify-between border-t border-white/15 pt-3 text-[0.64rem] font-bold tracking-[0.1em] text-accent"
+                className={cn(
+                  "group mt-4 flex w-full items-center justify-between border-t border-white/15 pt-3 text-[0.64rem] font-bold tracking-[0.1em]",
+                  isActiveHq ? "text-[#5eead4]" : "text-accent",
+                )}
               >
                 {t.common.contactUs}
                 <ArrowUpRight className="arrow-flip h-3.5 w-3.5" />
