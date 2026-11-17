@@ -201,7 +201,7 @@ export function Hero() {
               {sectors.map((sector) => (
                 <span key={`${cycle}-${sector.id}`} className="flex items-center gap-10">
                   <span className="flex items-center gap-2.5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#f6f1e7]/55">
-                    <LogoMark className="h-3 w-3 text-accent" />
+                    <LogoMark className="h-4 w-auto shrink-0" />
                     {sector.company}
                   </span>
                   <span className="h-1 w-1 rounded-full bg-accent/50" />

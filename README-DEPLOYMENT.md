@@ -28,7 +28,7 @@ npm run build:hostinger
 | `projects.html`, `privacy.html` | نقاط دخول احتياطية متوافقة مع SEO (تُوجّه عبر `.htaccess` إلى `index.html`) |
 | `404.html` | صفحة خطأ 404 مخصصة (`ErrorDocument`) |
 | `robots.txt`, `sitemap.xml` | ملفات الأرشفة مضبوطة على `https://sawa-united.net` |
-| `favicon.svg`, `site.webmanifest`, `og-cover.jpg` | أيقونة الموقع وصورة المشاركة الاجتماعية (Open Graph) |
+| `favicon-192.png`, `site.webmanifest`, `og-cover.jpg` | شعار وأيقونة الموقع الرسمية وصورة المشاركة الاجتماعية (Open Graph) |
 
 ---
 

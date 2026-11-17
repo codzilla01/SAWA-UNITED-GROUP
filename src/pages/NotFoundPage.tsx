@@ -59,8 +59,8 @@ export function NotFoundPage() {
             <div className="relative aspect-square rounded-full border border-white/10">
               <div className="absolute inset-10 rounded-full border border-dashed border-white/15" />
               <div className="absolute inset-24 rounded-full border border-accent/25" />
-              <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/[0.05] text-accent backdrop-blur-sm">
-                <LogoMark className="h-9 w-9" />
+              <span className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/[0.05] backdrop-blur-sm">
+                <LogoMark className="h-12 w-auto" />
               </span>
               {[
                 { top: "4%", left: "48%" },

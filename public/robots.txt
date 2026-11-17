@@ -9,7 +9,7 @@ Disallow: /config.example.php
 Disallow: /404.html
 
 # Assets that search engines may index
-Allow: /favicon.svg
+Allow: /favicon-192.png
 Allow: /og-cover.jpg
 
 Sitemap: https://sawa-united.net/sitemap.xml

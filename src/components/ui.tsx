@@ -6,45 +6,46 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/utils/cn";
-import { ArrowUpRight, LogoMark, socialIcon } from "./icons";
+import logoSrc from "@/assets/logo.png";
+import { ArrowUpRight, socialIcon } from "./icons";
 import { site } from "@/lib/site";
 
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cn("mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10", className)}>{children}</div>;
 }
 
+const logoSizes = {
+  sm: "h-12",
+  md: "h-[54px]",
+  lg: "h-[74px]",
+};
+
 export function Logo({
   className,
   invert = false,
-  showTagline = true,
+  size = "md",
 }: {
   className?: string;
   invert?: boolean;
-  showTagline?: boolean;
+  size?: keyof typeof logoSizes;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark className={cn("h-9 w-9 shrink-0", invert ? "text-[#f6f1e7]" : "text-accent")} />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "text-[1.22rem] font-extrabold tracking-[0.12em]",
-            invert ? "text-[#f6f1e7]" : "text-ink",
-          )}
-        >
-          SAWA
-        </span>
-        {showTagline && (
-          <span
-            className={cn(
-              "mt-1 text-[0.53rem] font-semibold tracking-[0.32em]",
-              invert ? "text-[#f6f1e7]/60" : "text-muted",
-            )}
-          >
-            UNITED GROUP
-          </span>
+    <span className={cn("inline-flex items-center", className)}>
+      <img
+        src={logoSrc}
+        alt="SAWA United Group — مجموعة سوا المتحدة"
+        width={156}
+        height={141}
+        decoding="async"
+        draggable={false}
+        className={cn(
+          logoSizes[size],
+          "w-auto shrink-0 select-none object-contain transition-transform duration-300",
+          invert
+            ? "drop-shadow-[0_4px_14px_rgba(0,0,0,0.42)]"
+            : "drop-shadow-[0_1px_2px_rgba(8,42,35,0.18)]",
         )}
-      </span>
+      />
     </span>
   );
 }
