@@ -200,6 +200,46 @@ const en = {
       direct: "Direct contact",
     },
   },
+  social: {
+    eyebrow: "Digital pulse",
+    title1: "Follow the journey,",
+    titleAccent: "in real time.",
+    lead: "Three distinct lenses into SAWA United Group — from official milestones to field motion and our visual journal in Egypt.",
+    follow: "Follow",
+    followUs: "Official channels",
+    openChannel: "Enter channel",
+    switchLabel: "Spotlight a channel",
+    dockLabel: "Official social channels",
+    toggleOpen: "Open social channels",
+    toggleClose: "Close social channels",
+    egyptBadge: "Follow SAWA Egypt",
+    channels: {
+      facebook: {
+        name: "Facebook",
+        badge: "Official Chronicle",
+        headline: "News, partnerships & milestones",
+        description:
+          "Follow group announcements, cross-sector launches, and official updates straight from SAWA United Group.",
+        ticker: "OFFICIAL CHRONICLE · GROUP ANNOUNCEMENTS · PARTNERSHIPS · SAWAUNITED.NET",
+      },
+      tiktok: {
+        name: "TikTok",
+        badge: "In Motion",
+        headline: "Behind the scenes, frame by frame",
+        description:
+          "Short-form stories from inside our operations, field teams, and daily momentum across all four sectors.",
+        ticker: "IN MOTION · BEHIND THE SCENES · FIELD STORIES · @SAWA.UNITED",
+      },
+      instagram: {
+        name: "Instagram",
+        badge: "SAWA Egypt · Visuals",
+        headline: "A curated visual journal from Egypt",
+        description:
+          "Spaces, people, and projects captured through the lens of SAWA United Group's growing presence in Egypt.",
+        ticker: "VISUAL JOURNAL · SAWA EGYPT · CAIRO & BEYOND · @SAWA.UNITED.EGYPT",
+      },
+    },
+  },
   footer: {
     tagline: "A Riyadh-based multi-sector group building businesses that last in automotive, food, real estate and petroleum.",
     group: "The group",
@@ -431,6 +471,46 @@ const ar: Copy = {
       direct: "تواصل مباشر",
     },
   },
+  social: {
+    eyebrow: "النبض الرقمي",
+    title1: "تابع المسيرة،",
+    titleAccent: "بإيقاعها الحيّ.",
+    lead: "ثلاث نوافذ غير تقليدية تطلّ على عالم مجموعة سوا المتحدة — من البيانات الرسمية إلى حركة الميدان وعدستنا البصرية في مصر.",
+    follow: "تابعنا",
+    followUs: "المنصّات الرسمية",
+    openChannel: "استكشف المنصّة",
+    switchLabel: "استعراض المنصّات",
+    dockLabel: "منصّات التواصل الرسمية",
+    toggleOpen: "فتح منصّات التواصل",
+    toggleClose: "إغلاق منصّات التواصل",
+    egyptBadge: "تابع سوا مصر",
+    channels: {
+      facebook: {
+        name: "فيسبوك",
+        badge: "السجلّ الرسمي",
+        headline: "أخبار المجموعة وشراكاتها",
+        description:
+          "البيانات الرسمية، إطلاقات المشروعات، وأبرز المحطات عبر قطاعات مجموعة سوا المتحدة الأربعة.",
+        ticker: "OFFICIAL CHRONICLE · SAWA UNITED GROUP · FACEBOOK · @SAWAUNITED.NET",
+      },
+      tiktok: {
+        name: "تيك توك",
+        badge: "إيقاع الميدان",
+        headline: "كواليس الأعمال في حركة",
+        description:
+          "لقطات مرئية سريعة من قلب المشروعات، كواليس الفرق، والنبض اليومي لأعمال المجموعة.",
+        ticker: "IN MOTION · FIELD RHYTHM · SAWA UNITED · TIKTOK · @SAWA.UNITED",
+      },
+      instagram: {
+        name: "إنستغرام",
+        badge: "عدسة سوا · مصر",
+        headline: "الواجهة البصرية لسوا في مصر",
+        description:
+          "قصص بصرية مختارة توثّق حضور مجموعة سوا المتحدة ومشروعاتها وتفاصيلها اليومية في السوق المصري.",
+        ticker: "VISUAL JOURNAL · SAWA UNITED EGYPT · INSTAGRAM · @SAWA.UNITED.EGYPT",
+      },
+    },
+  },
   footer: {
     tagline: "مجموعة متعددة القطاعات مقرها الرياض، تبني أعمالًا تدوم في السيارات والغذاء والعقار والبترول.",
     group: "المجموعة",
@@ -656,6 +736,46 @@ const fr: Copy = {
       whatsappLabel: "Ligne directe",
       whatsapp: "Discuter sur WhatsApp",
       direct: "Contact direct",
+    },
+  },
+  social: {
+    eyebrow: "Présence digitale",
+    title1: "Suivez l'élan,",
+    titleAccent: "au fil du réel.",
+    lead: "Trois fenêtres complémentaires sur SAWA United Group — des annonces officielles aux coulisses terrain et à notre journal visuel en Égypte.",
+    follow: "Suivre",
+    followUs: "Chaînes officielles",
+    openChannel: "Explorer la chaîne",
+    switchLabel: "Choisir une plateforme",
+    dockLabel: "Réseaux sociaux officiels",
+    toggleOpen: "Ouvrir les réseaux sociaux",
+    toggleClose: "Fermer les réseaux sociaux",
+    egyptBadge: "Suivre SAWA Égypte",
+    channels: {
+      facebook: {
+        name: "Facebook",
+        badge: "Chronique officielle",
+        headline: "Actualités, partenariats & jalons",
+        description:
+          "Retrouvez les annonces du groupe, les nouveaux partenariats et les temps forts de nos quatre secteurs.",
+        ticker: "CHRONIQUE OFFICIELLE · ANNONCES · PARTENARIATS · @SAWAUNITED.NET",
+      },
+      tiktok: {
+        name: "TikTok",
+        badge: "En mouvement",
+        headline: "Les coulisses du groupe en vidéo",
+        description:
+          "Formats courts au cœur de nos chantiers, de nos équipes et de la dynamique quotidienne de nos activités.",
+        ticker: "EN MOUVEMENT · COULISSES · TERRAIN · TIKTOK · @SAWA.UNITED",
+      },
+      instagram: {
+        name: "Instagram",
+        badge: "SAWA Égypte · Visuel",
+        headline: "Journal visuel depuis l'Égypte",
+        description:
+          "Une sélection d'images et de récits dédiés aux projets, aux lieux et à la présence de SAWA United en Égypte.",
+        ticker: "JOURNAL VISUEL · SAWA ÉGYPTE · LE CAIRE · @SAWA.UNITED.EGYPT",
+      },
     },
   },
   footer: {

@@ -6,7 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/utils/cn";
-import { ArrowUpRight, Instagram, LinkedIn, LogoMark, XSocial } from "./icons";
+import { ArrowUpRight, LogoMark, socialIcon } from "./icons";
 import { site } from "@/lib/site";
 
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
@@ -257,32 +257,59 @@ export function Counter({
   );
 }
 
-const socialIcons = {
-  linkedin: LinkedIn,
-  instagram: Instagram,
-  x: XSocial,
-};
+export function SocialLinks({
+  invert = false,
+  compact = false,
+  className,
+}: {
+  invert?: boolean;
+  compact?: boolean;
+  className?: string;
+}) {
+  const [activeId, setActiveId] = useState<string | null>(null);
 
-export function SocialLinks({ invert = false, className }: { invert?: boolean; className?: string }) {
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex flex-wrap items-center gap-2", className)}>
       {site.socials.map((social) => {
-        const Icon = socialIcons[social.icon];
+        const Icon = socialIcon(social.icon);
+        const expanded = activeId === social.id;
+        const revealText = compact ? social.label : social.handle;
+
         return (
           <a
-            key={social.label}
+            key={social.id}
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={social.label}
+            aria-label={`${social.label} (${social.handle})`}
+            onMouseEnter={() => setActiveId(social.id)}
+            onMouseLeave={() => setActiveId(null)}
+            onFocus={() => setActiveId(social.id)}
+            onBlur={() => setActiveId(null)}
             className={cn(
-              "flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-300",
+              "group inline-flex h-9 items-center rounded-full border transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              expanded ? "px-3.5" : "px-[9px]",
               invert
-                ? "border-white/15 text-[#f6f1e7]/70 hover:border-accent hover:text-accent"
-                : "border-line text-muted hover:border-accent hover:text-accent",
+                ? expanded
+                  ? "border-accent bg-accent text-[#181310] shadow-[0_10px_25px_-10px_rgba(216,160,106,0.75)]"
+                  : "border-white/15 bg-white/[0.03] text-[#f6f1e7]/75 hover:border-accent hover:text-accent"
+                : expanded
+                  ? "border-accent bg-accent text-[#181310] shadow-[0_10px_25px_-10px_rgba(185,122,67,0.65)]"
+                  : "border-line bg-surface/60 text-muted hover:border-accent hover:text-accent",
             )}
           >
-            <Icon className="h-4 w-4" />
+            <Icon className="h-4 w-4 shrink-0" />
+            <span
+              className={cn(
+                "grid overflow-hidden transition-[grid-template-columns,margin] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                expanded ? "ms-2 grid-cols-[1fr]" : "ms-0 grid-cols-[0fr]",
+              )}
+            >
+              <span className="inline-flex min-w-0 items-center gap-1 overflow-hidden whitespace-nowrap text-[0.66rem] font-bold">
+                <span dir="ltr">{revealText}</span>
+                <ArrowUpRight className="arrow-flip h-3 w-3 shrink-0" />
+              </span>
+            </span>
           </a>
         );
       })}

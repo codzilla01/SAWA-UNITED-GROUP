@@ -183,13 +183,42 @@ html[lang="ar"] li {
 @keyframes dash {
   to { stroke-dashoffset: -300; }
 }
+@keyframes orbit-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes equalizer {
+  0%, 100% { transform: scaleY(0.26); opacity: 0.45; }
+  45% { transform: scaleY(1); opacity: 1; }
+  72% { transform: scaleY(0.54); opacity: 0.72; }
+}
 
 .anim-float { animation: floaty 8s ease-in-out infinite; }
 .anim-float-alt { animation: floaty-alt 9s ease-in-out infinite; }
 .anim-marquee { animation: marquee 38s linear infinite; }
+.anim-marquee-fast { animation: marquee 24s linear infinite; }
 .anim-ping { animation: ping-soft 2.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
 .anim-rise { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-orbit { animation: orbit-slow 28s linear infinite; }
+.anim-orbit-reverse { animation: orbit-reverse 22s linear infinite; }
+.anim-eq {
+  transform-origin: bottom center;
+  animation: equalizer 1.9s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
 .map-arc { stroke-dasharray: 4 7; animation: dash 14s linear infinite; }
+
+.social-spotlight {
+  background: radial-gradient(
+    440px circle at var(--spot-x, 50%) var(--spot-y, 35%),
+    rgba(216, 160, 106, 0.2),
+    rgba(21, 88, 69, 0.14) 42%,
+    transparent 70%
+  );
+}
 
 .reveal {
   opacity: 0;
@@ -287,6 +316,6 @@ html[dir="rtl"] select.field {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .anim-float, .anim-float-alt, .anim-marquee, .anim-ping, .anim-rise, .map-arc { animation: none !important; }
+  .anim-float, .anim-float-alt, .anim-marquee, .anim-marquee-fast, .anim-ping, .anim-rise, .anim-orbit, .anim-orbit-reverse, .anim-eq, .map-arc { animation: none !important; }
   * { transition-duration: 0.01ms !important; }
 }

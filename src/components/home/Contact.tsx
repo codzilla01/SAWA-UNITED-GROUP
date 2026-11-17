@@ -264,11 +264,11 @@ export function Contact() {
                 </a>
               </div>
 
-              <div className="relative mt-auto flex items-center justify-between border-t border-white/10 pt-5">
+              <div className="relative mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
                 <p className="font-display text-[1.05rem] italic text-[#f6f1e7]/70" dir="ltr">
                   Together, beyond boundaries.
                 </p>
-                <SocialLinks invert />
+                <SocialLinks invert compact />
               </div>
             </div>
           </Reveal>
