@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:hostinger": "vite build && node scripts/package-hostinger.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-# SAWA United Group — https://sawaunited.net
+# SAWA United Group — https://sawa-united.net
 # Crawlers: full site is open; server-side and configuration files are closed.
 
 User-agent: *
@@ -12,5 +12,4 @@ Disallow: /404.html
 Allow: /favicon.svg
 Allow: /og-cover.jpg
 
-Sitemap: https://sawaunited.net/sitemap.xml
-Host: https://sawaunited.net
+Sitemap: https://sawa-united.net/sitemap.xml

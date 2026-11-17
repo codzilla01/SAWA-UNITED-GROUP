@@ -252,7 +252,7 @@ const en = {
     copyright: "© 2026 SAWA United Group. All rights reserved.",
     location: "El Sheikh Zayed · 6 October City, Egypt",
     taglineShort: "Together, beyond boundaries.",
-    websites: "sawaunited.net",
+    websites: "sawa-united.net",
   },
   privacy: {
     eyebrow: "Legal · Privacy",
@@ -269,7 +269,7 @@ const en = {
     lead: "The link may have changed, or the page has moved. Let's get you back to solid ground.",
     home: "Back to home",
     projects: "Browse projects",
-    help: "Need help? Write to info@sawaunited.net",
+    help: "Need help? Write to info@sawa-united.net",
   },
   seo: {
     homeTitle: "SAWA United Group — Automotive, Food, Real Estate & Petroleum",
@@ -523,7 +523,7 @@ const ar: Copy = {
     copyright: "© 2026 مجموعة سوا المتحدة. جميع الحقوق محفوظة.",
     location: "مدينة الشيخ زايد · 6 أكتوبر، مصر",
     taglineShort: "معًا، نتجاوز الحدود.",
-    websites: "sawaunited.net",
+    websites: "sawa-united.net",
   },
   privacy: {
     eyebrow: "قانوني · الخصوصية",
@@ -540,7 +540,7 @@ const ar: Copy = {
     lead: "ربما تغيّر الرابط أو نُقلت الصفحة. لنعُد بك إلى مسار واضح.",
     home: "العودة إلى الرئيسية",
     projects: "استعرض المشروعات",
-    help: "تحتاج مساعدة؟ راسلنا على info@sawaunited.net",
+    help: "تحتاج مساعدة؟ راسلنا على info@sawa-united.net",
   },
   seo: {
     homeTitle: "مجموعة سوا المتحدة | السيارات والغذاء والعقار والبترول",
@@ -790,7 +790,7 @@ const fr: Copy = {
     copyright: "© 2026 SAWA United Group. Tous droits réservés.",
     location: "El Sheikh Zayed · Cité du 6 Octobre, Égypte",
     taglineShort: "Ensemble, au-delà des frontières.",
-    websites: "sawaunited.net",
+    websites: "sawa-united.net",
   },
   privacy: {
     eyebrow: "Juridique · Confidentialité",
@@ -807,7 +807,7 @@ const fr: Copy = {
     lead: "Le lien a peut-être changé ou la page a été déplacée. Revenons sur un terrain solide.",
     home: "Retour à l'accueil",
     projects: "Voir les projets",
-    help: "Besoin d'aide ? Écrivez à info@sawaunited.net",
+    help: "Besoin d'aide ? Écrivez à info@sawa-united.net",
   },
   seo: {
     homeTitle: "SAWA United Group — Automobile, Alimentaire, Immobilier & Pétrole",

@@ -3,11 +3,12 @@
  * ==========================================================================
  * SAWA United Group — contact form handler
  * ==========================================================================
- * Drop-in backend for the React contact form on https://sawaunited.net
+ * Drop-in backend for the React contact form on https://sawa-united.net
+ * Target path: /domains/sawa-united.net/public_html/contact.php
  *
  * Requirements on Hostinger:
  *   - PHP 8.0+ (recommended: 8.2)
- *   - Two mailboxes: noreply@sawaunited.net (sender) + info@sawaunited.net (inbox)
+ *   - Two mailboxes: noreply@sawa-united.net (sender) + info@sawa-united.net (inbox)
  *   - Optional config.php copied from config.example.php
  *
  * Response contract (JSON):
@@ -29,12 +30,12 @@ if (!is_array($config)) {
     $config = [];
 }
 
-$recipient  = (string) ($config['recipient'] ?? 'info@sawaunited.net');
-$sender     = (string) ($config['sender'] ?? 'noreply@sawaunited.net');
+$recipient  = (string) ($config['recipient'] ?? 'info@sawa-united.net');
+$sender     = (string) ($config['sender'] ?? 'noreply@sawa-united.net');
 $senderName = (string) ($config['sender_name'] ?? 'SAWA United Group Website');
 $waNumber   = preg_replace('/\D+/', '', (string) ($config['whatsapp'] ?? '201011225592')) ?? '201011225592';
 $rateWindow = max(10, (int) ($config['rate_limit_seconds'] ?? 45));
-$siteUrl    = (string) ($config['site_url'] ?? 'https://sawaunited.net');
+$siteUrl    = (string) ($config['site_url'] ?? 'https://sawa-united.net');
 $bcc        = (string) ($config['bcc'] ?? '');
 
 /** Send a JSON response and stop. */
@@ -212,8 +213,15 @@ if ($bcc !== '') {
 
 $sent = false;
 if (function_exists('mail')) {
-    // -f sets the envelope sender so SPF/DKIM pass on Hostinger.
-    $sent = @mail($recipient, $subject, $body, implode("\r\n", $headers), '-f' . $sender);
+    $headerString = implode("\r\n", $headers);
+    // -f sets the envelope sender so SPF/DKIM pass on Hostinger; fall back without -f if restricted.
+    $safeSender = filter_var($sender, FILTER_VALIDATE_EMAIL) ? $sender : '';
+    if ($safeSender !== '') {
+        $sent = @mail($recipient, $subject, $body, $headerString, '-f' . $safeSender);
+    }
+    if (!$sent) {
+        $sent = @mail($recipient, $subject, $body, $headerString);
+    }
 }
 
 if (!$sent) {

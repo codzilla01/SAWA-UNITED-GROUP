@@ -1,0 +1,118 @@
+# ============================================================================
+# SAWA United Group — Hostinger Production Configuration (Apache / LiteSpeed)
+# Target path: /domains/sawa-united.net/public_html/.htaccess
+# ============================================================================
+
+DirectoryIndex index.html index.php
+Options -Indexes -MultiViews
+ServerSignature Off
+AddDefaultCharset UTF-8
+
+# Custom error documents
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------------
+# 1. Block direct HTTP access to sensitive & configuration files
+# ----------------------------------------------------------------------------
+<FilesMatch "^(config(\.example)?\.php|\.env(\..*)?|\.git.*|\.htaccess|composer\.(json|lock)|package(-lock)?\.json|README.*\.md|.*\.(log|bak|sql|sh|ini|swp))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ----------------------------------------------------------------------------
+# 2. HTTPS, canonical domain & clean SPA routing
+# ----------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Block access to hidden directories/files (except ACME SSL verification)
+  RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+  RewriteRule (^|/)\. - [F,L]
+
+  # Canonical non-www domain (single-hop to HTTPS): www.sawa-united.net -> https://sawa-united.net
+  RewriteCond %{HTTP_HOST} ^www\.sawa-united\.net$ [NC]
+  RewriteRule ^ https://sawa-united.net%{REQUEST_URI} [R=301,L]
+
+  # Force HTTPS (supports Hostinger LiteSpeed & reverse-proxy/Cloudflare)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Allow PHP contact form endpoint directly
+  RewriteRule ^contact\.php$ - [L]
+
+  # Serve known SPA routes directly through index.html (preserves URL for SEO)
+  RewriteRule ^(projects|privacy)(\.html)?/?$ /index.html [L]
+
+  # Serve existing static assets (favicon, og-cover, sitemap, robots, manifest, 404)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 3. MIME types
+# ----------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg .svgz
+  AddType application/manifest+json .webmanifest
+  AddType application/xml .xml
+  AddType text/plain .txt
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType font/woff2 .woff2
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 4. Security headers
+# ----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+  Header always unset X-Powered-By
+
+  # Always revalidate HTML entry points & PHP responses after deployments
+  <FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Long-lived cache for static brand/media assets
+  <FilesMatch "\.(jpg|jpeg|png|webp|avif|gif|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+
+  # Moderate cache for metadata files
+  <FilesMatch "\.(webmanifest|xml|txt)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 5. Compression (Gzip / Brotli) & Expires
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml application/manifest+json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType application/manifest+json "access plus 1 day"
+  ExpiresByType application/xml "access plus 1 day"
+</IfModule>

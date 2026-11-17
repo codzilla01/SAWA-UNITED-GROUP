@@ -397,7 +397,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
   ar: {
     title: "سياسة الخصوصية",
     intro:
-      "تشرح هذه السياسة كيف تجمع مجموعة سوا المتحدة («المجموعة»، «نحن») المعلومات الشخصية وتستخدمها وتحميها عند زيارتك لموقع sawaunited.net أو تواصلك معنا. باستخدامك للموقع فإنك توافق على الممارسات الموضحة أدناه.",
+      "تشرح هذه السياسة كيف تجمع مجموعة سوا المتحدة («المجموعة»، «نحن») المعلومات الشخصية وتستخدمها وتحميها عند زيارتك لموقع sawa-united.net أو تواصلك معنا. باستخدامك للموقع فإنك توافق على الممارسات الموضحة أدناه.",
     sections: [
       {
         title: "المعلومات التي نجمعها",
@@ -438,7 +438,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
         title: "حقوقك",
         body: [
           "يحق لك طلب الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على معالجتها، وذلك وفقًا للقوانين والأنظمة المعمول بها في جمهورية مصر العربية.",
-          "للممارسة هذه الحقوق، راسلنا على info@sawaunited.net وسنستجيب خلال المدة النظامية.",
+          "للممارسة هذه الحقوق، راسلنا على info@sawa-united.net وسنستجيب خلال المدة النظامية.",
         ],
       },
       {
@@ -450,7 +450,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "التواصل معنا",
         body: [
-          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawaunited.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر.",
+          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawa-united.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر.",
         ],
       },
     ],
@@ -458,7 +458,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
   en: {
     title: "Privacy Policy",
     intro:
-      "This policy explains how SAWA United Group (“the Group”, “we”) collects, uses and protects personal information when you visit sawaunited.net or contact us. By using this website, you agree to the practices described below.",
+      "This policy explains how SAWA United Group (“the Group”, “we”) collects, uses and protects personal information when you visit sawa-united.net or contact us. By using this website, you agree to the practices described below.",
     sections: [
       {
         title: "Information we collect",
@@ -499,7 +499,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
         title: "Your rights",
         body: [
           "You may request access to, correction of, or deletion of your personal information, or object to its processing, in accordance with applicable laws and regulations in the Arab Republic of Egypt.",
-          "To exercise these rights, contact us at info@sawaunited.net and we will respond within the legal timeframe.",
+          "To exercise these rights, contact us at info@sawa-united.net and we will respond within the legal timeframe.",
         ],
       },
       {
@@ -511,7 +511,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "Contact us",
         body: [
-          "For any privacy or data-protection question, write to info@sawaunited.net or to our headquarters: SAWA United Group, El Sheikh Zayed City, 6 October City, Egypt.",
+          "For any privacy or data-protection question, write to info@sawa-united.net or to our headquarters: SAWA United Group, El Sheikh Zayed City, 6 October City, Egypt.",
         ],
       },
     ],
