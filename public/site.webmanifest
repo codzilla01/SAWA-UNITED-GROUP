@@ -1,0 +1,20 @@
+{
+  "name": "SAWA United Group — مجموعة سوا المتحدة",
+  "short_name": "SAWA",
+  "description": "A Saudi multi-sector group operating in automotive, food, real estate and petroleum.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07130f",
+  "theme_color": "#082a23",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
