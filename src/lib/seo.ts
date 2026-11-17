@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://sawaunited.net";
+const SITE_URL = "https://sawa-united.net";
 
 function upsertMeta(selector: string, attribute: "name" | "property", key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(selector);

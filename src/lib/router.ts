@@ -31,8 +31,13 @@ function parseRoute(): Route {
     return "notfound";
   }
 
-  if (path.endsWith("/privacy.html") || path.endsWith("privacy.html")) return "privacy";
-  if (path.endsWith("/projects.html") || path.endsWith("projects.html")) return "projects";
+  const cleanPath = path.replace(/\/+$/, "");
+  if (cleanPath.endsWith("/privacy.html") || cleanPath.endsWith("privacy.html") || cleanPath === "/privacy") {
+    return "privacy";
+  }
+  if (cleanPath.endsWith("/projects.html") || cleanPath.endsWith("projects.html") || cleanPath === "/projects") {
+    return "projects";
+  }
 
   return "home";
 }
