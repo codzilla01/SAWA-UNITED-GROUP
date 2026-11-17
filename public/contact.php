@@ -32,7 +32,7 @@ if (!is_array($config)) {
 $recipient  = (string) ($config['recipient'] ?? 'info@sawaunited.net');
 $sender     = (string) ($config['sender'] ?? 'noreply@sawaunited.net');
 $senderName = (string) ($config['sender_name'] ?? 'SAWA United Group Website');
-$waNumber   = preg_replace('/\D+/', '', (string) ($config['whatsapp'] ?? '966551234567')) ?? '966551234567';
+$waNumber   = preg_replace('/\D+/', '', (string) ($config['whatsapp'] ?? '201011225592')) ?? '201011225592';
 $rateWindow = max(10, (int) ($config['rate_limit_seconds'] ?? 45));
 $siteUrl    = (string) ($config['site_url'] ?? 'https://sawaunited.net');
 $bcc        = (string) ($config['bcc'] ?? '');
