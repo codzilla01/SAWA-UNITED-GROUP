@@ -26,9 +26,9 @@ export const site = {
   phoneHref: "+201011225592",
   whatsappNumber: "201011225592",
   address: {
-    ar: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
-    en: "King Fahd Road, Riyadh, Saudi Arabia",
-    fr: "King Fahd Road, Riyad, Arabie saoudite",
+    ar: "مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر",
+    en: "El Sheikh Zayed City, 6 October City, Egypt",
+    fr: "El Sheikh Zayed City, Cité du 6 Octobre, Égypte",
   },
   founded: "2007",
   socials: [
@@ -40,7 +40,7 @@ export const site = {
       shortUrl: "facebook.com/Sawaunited.net",
       href: "https://www.facebook.com/Sawaunited.net",
       icon: "facebook",
-      coordinates: "24°42′N · HQ",
+      coordinates: "30°02′N · HQ",
     },
     {
       id: "tiktok",

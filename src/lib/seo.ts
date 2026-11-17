@@ -39,7 +39,7 @@ export function useSeo({ title, description, lang, path = "", noIndex = false }:
     upsertMeta('meta[property="og:title"]', "property", "og:title", title);
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[property="og:url"]', "property", "og:url", url);
-    upsertMeta('meta[property="og:locale"]', "property", "og:locale", lang === "ar" ? "ar_SA" : lang === "fr" ? "fr_FR" : "en_US");
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", lang === "ar" ? "ar_EG" : lang === "fr" ? "fr_FR" : "en_US");
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
     upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
     upsertLink("canonical", path.endsWith(".html") ? url : `${SITE_URL}/`);

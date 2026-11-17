@@ -51,7 +51,7 @@ const en = {
     skip: "Skip to content",
   },
   hero: {
-    eyebrow: "A Saudi multi-sector group · Riyadh",
+    eyebrow: "A multi-sector group · El Sheikh Zayed, Egypt",
     title1: "Built together.",
     titleAccent: "Beyond boundaries.",
     lead: "A multi-sector group investing in automotive, food, real estate and petroleum — building enduring value that grows with the communities we serve.",
@@ -73,10 +73,10 @@ const en = {
     eyebrow: "The group",
     title1: "We build businesses",
     titleAccent: "that last.",
-    lead: "SAWA United Group was founded in Riyadh in 2007 and has grown into a multi-sector group that pairs long-term capital with local teams and global standards.",
+    lead: "Founded in 2007 and headquartered in El Sheikh Zayed City, 6 October City, Egypt, SAWA United Group has grown into a multi-sector group that pairs long-term capital with local teams and global standards.",
     lead2: "We think in generations: entering sectors we understand deeply, then building companies able to serve their clients and communities for decades.",
     imageAlt: "The SAWA United Group team in a working session",
-    imageCaption: "Riyadh · Group headquarters",
+    imageCaption: "El Sheikh Zayed · Group headquarters",
     operatingTitle: "How we work",
     principles: [
       {
@@ -137,7 +137,7 @@ const en = {
     title: "Measured steps. A wider horizon.",
     lead: "We grow deliberately — adding a new capability or market only when we can add real, lasting value.",
     milestones: [
-      { year: "2007", title: "Founded in Riyadh", text: "The group begins with a clear belief: businesses built with people last longer." },
+      { year: "2007", title: "Founded in Egypt", text: "The group begins with a clear belief: businesses built with people last longer." },
       { year: "2012", title: "Automotive platform", text: "Distribution and retail partnerships create the group's first sector at scale." },
       { year: "2016", title: "Food platform", text: "Manufacturing and supply-chain capability expands into everyday essentials." },
       { year: "2019", title: "Real estate enters", text: "Development and asset management become a long-term value engine." },
@@ -190,7 +190,7 @@ const en = {
       emailLabel: "Write to us",
       phoneLabel: "Call the group",
       hqLabel: "Headquarters",
-      hq: "King Fahd Road, Riyadh, Saudi Arabia",
+      hq: "El Sheikh Zayed City, 6 October City, Egypt",
       hoursLabel: "Office hours",
       hours: "Sunday – Thursday, 9:00 – 17:00",
       responseLabel: "Response time",
@@ -241,7 +241,7 @@ const en = {
     },
   },
   footer: {
-    tagline: "A Riyadh-based multi-sector group building businesses that last in automotive, food, real estate and petroleum.",
+    tagline: "A multi-sector group headquartered in El Sheikh Zayed City, 6 October City, Egypt, building businesses that last in automotive, food, real estate and petroleum.",
     group: "The group",
     sectors: "Sectors",
     reach: "Reach us",
@@ -250,7 +250,7 @@ const en = {
     sitemap: "Sitemap",
     contact: "Contact",
     copyright: "© 2026 SAWA United Group. All rights reserved.",
-    location: "Riyadh · Kingdom of Saudi Arabia",
+    location: "El Sheikh Zayed · 6 October City, Egypt",
     taglineShort: "Together, beyond boundaries.",
     websites: "sawaunited.net",
   },
@@ -275,7 +275,7 @@ const en = {
     homeTitle: "SAWA United Group — Automotive, Food, Real Estate & Petroleum",
     homeTitleEn: "SAWA United Group — Automotive, Food, Real Estate & Petroleum",
     homeDesc:
-      "SAWA United Group is a Riyadh-based multi-sector group operating in automotive, food, real estate and petroleum across six markets.",
+      "SAWA United Group is a multi-sector group headquartered in El Sheikh Zayed City, 6 October City, Egypt, operating in automotive, food, real estate and petroleum across six markets.",
     projectsTitle: "Projects | SAWA United Group",
     projectsDesc:
       "Explore SAWA United Group's portfolio of automotive, food, real estate and petroleum projects across six markets.",
@@ -322,7 +322,7 @@ const ar: Copy = {
     skip: "تجاوز إلى المحتوى",
   },
   hero: {
-    eyebrow: "مجموعة سعودية متعددة القطاعات · الرياض",
+    eyebrow: "مجموعة متعددة القطاعات · الشيخ زايد، مصر",
     title1: "معًا، نبني",
     titleAccent: "ما يتجاوز الحدود.",
     lead: "مجموعة متعددة القطاعات تستثمر في السيارات والغذاء والعقار والبترول، لتبني قيمة تدوم وتنمو مع المجتمعات التي نخدمها.",
@@ -344,10 +344,10 @@ const ar: Copy = {
     eyebrow: "المجموعة",
     title1: "نبني أعمالًا",
     titleAccent: "تبقى وتكبر.",
-    lead: "تأسست مجموعة سوا المتحدة في الرياض عام 2007، ونمت لتصبح مجموعة متعددة القطاعات تجمع بين رأس المال طويل الأمد والفرق المحلية والمعايير العالمية.",
+    lead: "تأسست مجموعة سوا المتحدة عام 2007 وتتخذ من مدينة الشيخ زايد بمدينة 6 أكتوبر في مصر مقرًا رئيسيًا لها، لتنمو إلى مجموعة متعددة القطاعات تجمع بين رأس المال طويل الأمد والفرق المحلية والمعايير العالمية.",
     lead2: "نفكر بمنطق الأجيال: ندخل قطاعات نفهمها بعمق، ثم نبني شركات قادرة على خدمة عملائها ومجتمعاتها لعقود.",
     imageAlt: "فريق مجموعة سوا المتحدة في جلسة عمل",
-    imageCaption: "الرياض · المقر الرئيسي للمجموعة",
+    imageCaption: "مدينة الشيخ زايد · المقر الرئيسي للمجموعة",
     operatingTitle: "كيف نعمل",
     principles: [
       {
@@ -408,7 +408,7 @@ const ar: Copy = {
     title: "خطى مدروسة. أفق أوسع.",
     lead: "ننمو بعناية: لا نضيف قدرة جديدة أو ندخل سوقًا إلا عندما نستطيع تقديم قيمة حقيقية تدوم.",
     milestones: [
-      { year: "2007", title: "التأسيس في الرياض", text: "انطلقت المجموعة بإيمان واضح: الأعمال التي تُبنى مع الناس تعيش أطول." },
+      { year: "2007", title: "التأسيس في مصر", text: "انطلقت المجموعة بإيمان واضح: الأعمال التي تُبنى مع الناس تعيش أطول." },
       { year: "2012", title: "انطلاق قطاع السيارات", text: "شراكات التوزيع والبيع بالتجزئة تصنع أول قطاع متكامل للمجموعة." },
       { year: "2016", title: "توسّع الغذاء", text: "قدرات التصنيع وسلاسل الإمداد تدخل أساسيات الحياة اليومية." },
       { year: "2019", title: "دخول العقار", text: "التطوير وإدارة الأصول يصبحان محرّك قيمة طويل الأمد." },
@@ -461,7 +461,7 @@ const ar: Copy = {
       emailLabel: "راسلنا",
       phoneLabel: "اتصل بالمجموعة",
       hqLabel: "المقر الرئيسي",
-      hq: "طريق الملك فهد، الرياض، المملكة العربية السعودية",
+      hq: "مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر",
       hoursLabel: "ساعات العمل",
       hours: "الأحد – الخميس، 9:00 – 17:00",
       responseLabel: "مدة الرد",
@@ -512,7 +512,7 @@ const ar: Copy = {
     },
   },
   footer: {
-    tagline: "مجموعة متعددة القطاعات مقرها الرياض، تبني أعمالًا تدوم في السيارات والغذاء والعقار والبترول.",
+    tagline: "مجموعة متعددة القطاعات مقرها مدينة الشيخ زايد بمدينة 6 أكتوبر في مصر، تبني أعمالًا تدوم في السيارات والغذاء والعقار والبترول.",
     group: "المجموعة",
     sectors: "القطاعات",
     reach: "تواصل",
@@ -521,7 +521,7 @@ const ar: Copy = {
     sitemap: "خريطة الموقع",
     contact: "تواصل معنا",
     copyright: "© 2026 مجموعة سوا المتحدة. جميع الحقوق محفوظة.",
-    location: "الرياض · المملكة العربية السعودية",
+    location: "مدينة الشيخ زايد · 6 أكتوبر، مصر",
     taglineShort: "معًا، نتجاوز الحدود.",
     websites: "sawaunited.net",
   },
@@ -546,7 +546,7 @@ const ar: Copy = {
     homeTitle: "مجموعة سوا المتحدة | السيارات والغذاء والعقار والبترول",
     homeTitleEn: "SAWA United Group — Automotive, Food, Real Estate & Petroleum",
     homeDesc:
-      "مجموعة سعودية متعددة القطاعات تتخذ من الرياض مقرًا لها، تعمل في السيارات والغذاء والعقار والبترول عبر ستة أسواق.",
+      "مجموعة متعددة القطاعات تتخذ من مدينة الشيخ زايد، 6 أكتوبر، مصر مقرًا رئيسيًا لها، وتعمل في السيارات والغذاء والعقار والبترول عبر ستة أسواق.",
     projectsTitle: "المشروعات | مجموعة سوا المتحدة",
     projectsDesc: "استعرض محفظة مشروعات مجموعة سوا المتحدة في السيارات والغذاء والعقار والبترول عبر ستة أسواق.",
     privacyTitle: "سياسة الخصوصية | مجموعة سوا المتحدة",
@@ -589,7 +589,7 @@ const fr: Copy = {
     skip: "Aller au contenu",
   },
   hero: {
-    eyebrow: "Groupe saoudien multisectoriel · Riyad",
+    eyebrow: "Groupe multisectoriel · El Sheikh Zayed, Égypte",
     title1: "Bâtir ensemble.",
     titleAccent: "Aller au-delà.",
     lead: "Un groupe multisectoriel investi dans l'automobile, l'alimentaire, l'immobilier et le pétrole, pour créer une valeur durable au service des communautés.",
@@ -611,10 +611,10 @@ const fr: Copy = {
     eyebrow: "Le groupe",
     title1: "Nous bâtissons des entreprises",
     titleAccent: "qui durent.",
-    lead: "Fondé à Riyad en 2007, SAWA United Group est devenu un groupe multisectoriel qui associe capital de long terme, équipes locales et standards internationaux.",
+    lead: "Fondé en 2007 et basé à El Sheikh Zayed City, Cité du 6 Octobre, Égypte, SAWA United Group est devenu un groupe multisectoriel qui associe capital de long terme, équipes locales et standards internationaux.",
     lead2: "Nous pensons en générations : entrer dans des secteurs que nous maîtrisons, puis bâtir des entreprises capables de servir clients et communautés pendant des décennies.",
     imageAlt: "L'équipe de SAWA United Group en séance de travail",
-    imageCaption: "Riyad · Siège du groupe",
+    imageCaption: "El Sheikh Zayed · Siège du groupe",
     operatingTitle: "Notre méthode",
     principles: [
       {
@@ -675,7 +675,7 @@ const fr: Copy = {
     title: "Des étapes mesurées. Un horizon plus large.",
     lead: "Nous grandissons avec méthode : chaque nouvelle capacité ou marché n'est ajouté que lorsque nous pouvons créer une valeur durable.",
     milestones: [
-      { year: "2007", title: "Fondation à Riyad", text: "Le groupe naît d'une conviction : les entreprises bâties avec les personnes durent plus longtemps." },
+      { year: "2007", title: "Fondation en Égypte", text: "Le groupe naît d'une conviction : les entreprises bâties avec les personnes durent plus longtemps." },
       { year: "2012", title: "Plateforme automobile", text: "Les partenariats de distribution et de vente créent le premier secteur du groupe." },
       { year: "2016", title: "Plateforme alimentaire", text: "La fabrication et la chaîne d'approvisionnement rejoignent les essentiels du quotidien." },
       { year: "2019", title: "L'immobilier", text: "Le développement et la gestion d'actifs deviennent un moteur de valeur à long terme." },
@@ -693,7 +693,7 @@ const fr: Copy = {
       email: "Adresse e-mail",
       emailPlaceholder: "nom@entreprise.com",
       phone: "Téléphone (facultatif)",
-      phonePlaceholder: "+33 6 XX XX XX XX",
+      phonePlaceholder: "+20 10 XXXX XXXX",
       sector: "Secteur d'intérêt",
       sectorPlaceholder: "Choisir un secteur",
       message: "Votre message",
@@ -728,7 +728,7 @@ const fr: Copy = {
       emailLabel: "Écrivez-nous",
       phoneLabel: "Appeler le groupe",
       hqLabel: "Siège",
-      hq: "King Fahd Road, Riyad, Arabie saoudite",
+      hq: "El Sheikh Zayed City, Cité du 6 Octobre, Égypte",
       hoursLabel: "Horaires",
       hours: "Dimanche – Jeudi, 9h00 – 17h00",
       responseLabel: "Délai de réponse",
@@ -779,7 +779,7 @@ const fr: Copy = {
     },
   },
   footer: {
-    tagline: "Un groupe multisectoriel basé à Riyad, qui bâtit des entreprises durables dans l'automobile, l'alimentaire, l'immobilier et le pétrole.",
+    tagline: "Un groupe multisectoriel basé à El Sheikh Zayed City, Cité du 6 Octobre, Égypte, qui bâtit des entreprises durables dans l'automobile, l'alimentaire, l'immobilier et le pétrole.",
     group: "Le groupe",
     sectors: "Secteurs",
     reach: "Nous joindre",
@@ -788,7 +788,7 @@ const fr: Copy = {
     sitemap: "Plan du site",
     contact: "Contact",
     copyright: "© 2026 SAWA United Group. Tous droits réservés.",
-    location: "Riyad · Royaume d'Arabie saoudite",
+    location: "El Sheikh Zayed · Cité du 6 Octobre, Égypte",
     taglineShort: "Ensemble, au-delà des frontières.",
     websites: "sawaunited.net",
   },
@@ -813,7 +813,7 @@ const fr: Copy = {
     homeTitle: "SAWA United Group — Automobile, Alimentaire, Immobilier & Pétrole",
     homeTitleEn: "SAWA United Group — Automotive, Food, Real Estate & Petroleum",
     homeDesc:
-      "SAWA United Group est un groupe multisectoriel basé à Riyad, actif dans l'automobile, l'alimentaire, l'immobilier et le pétrole sur six marchés.",
+      "SAWA United Group est un groupe multisectoriel basé à El Sheikh Zayed City, Cité du 6 Octobre, Égypte, actif dans l'automobile, l'alimentaire, l'immobilier et le pétrole sur six marchés.",
     projectsTitle: "Projets | SAWA United Group",
     projectsDesc:
       "Découvrez le portefeuille de projets de SAWA United Group : automobile, alimentaire, immobilier et pétrole sur six marchés.",
