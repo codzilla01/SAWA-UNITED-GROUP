@@ -28,10 +28,10 @@ const graticulePath = pathGenerator(geoGraticule10()) ?? "";
 
 // Small visual offsets keep neighbouring Gulf markers easy to click on the world map.
 const markerOffsets: Record<string, { x: number; y: number }> = {
-  riyadh: { x: 0, y: 0 },
+  cairo: { x: 0, y: 0 },
+  riyadh: { x: -4, y: 8 },
   dubai: { x: 22, y: -20 },
   doha: { x: -6, y: 18 },
-  cairo: { x: -8, y: 2 },
   istanbul: { x: 14, y: -10 },
   paris: { x: -12, y: -14 },
 };
@@ -63,7 +63,7 @@ const markers = markets.map((market) => {
 
 export function Presence() {
   const { t, locale, dir } = useI18n();
-  const [activeId, setActiveId] = useState("riyadh");
+  const [activeId, setActiveId] = useState("cairo");
   const active = markets.find((market) => market.id === activeId) ?? markets[0];
 
   const roleLabels: Record<Market["role"], string> = {
@@ -196,7 +196,7 @@ export function Presence() {
               </div>
 
               <div className="mt-2 flex flex-wrap items-center justify-between gap-2 px-1 text-[0.58rem] text-[#f6f1e7]/35 sm:px-2">
-                <span dir="ltr">EMEA · 24°N 46°E</span>
+                <span dir="ltr">EMEA · 30°N 31°E</span>
                 <span>{locale === "ar" ? "اضغط على أي موقع لاستعراض تفاصيله" : locale === "fr" ? "Sélectionnez un marché pour ses détails" : "Select any market to explore it"}</span>
               </div>
             </div>

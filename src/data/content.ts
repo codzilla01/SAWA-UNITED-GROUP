@@ -326,13 +326,27 @@ export type Market = {
 
 export const markets: Market[] = [
   {
+    id: "cairo",
+    city: {
+      ar: "الشيخ زايد · 6 أكتوبر",
+      en: "El Sheikh Zayed · 6 October",
+      fr: "El Sheikh Zayed · 6 Octobre",
+    },
+    country: EGY,
+    lon: 30.9718,
+    lat: 30.0444,
+    role: "hq",
+    since: "2007",
+    focus: ["automotive", "food", "realestate", "petroleum"],
+  },
+  {
     id: "riyadh",
     city: { ar: "الرياض", en: "Riyadh", fr: "Riyad" },
     country: { ar: "المملكة العربية السعودية", en: "Saudi Arabia", fr: "Arabie saoudite" },
     lon: 46.6753,
     lat: 24.7136,
-    role: "hq",
-    since: "2007",
+    role: "regional",
+    since: "2012",
     focus: ["automotive", "food", "realestate"],
   },
   {
@@ -346,14 +360,14 @@ export const markets: Market[] = [
     focus: ["petroleum", "automotive", "realestate"],
   },
   {
-    id: "cairo",
-    city: { ar: "القاهرة", en: "Cairo", fr: "Le Caire" },
-    country: EGY,
-    lon: 31.2357,
-    lat: 30.0444,
-    role: "operations",
-    since: "2018",
-    focus: ["food", "automotive"],
+    id: "doha",
+    city: { ar: "الدوحة", en: "Doha", fr: "Doha" },
+    country: QAT,
+    lon: 51.531,
+    lat: 25.2854,
+    role: "regional",
+    since: "2020",
+    focus: ["realestate", "petroleum"],
   },
   {
     id: "istanbul",
@@ -364,16 +378,6 @@ export const markets: Market[] = [
     role: "operations",
     since: "2021",
     focus: ["food", "automotive"],
-  },
-  {
-    id: "doha",
-    city: { ar: "الدوحة", en: "Doha", fr: "Doha" },
-    country: QAT,
-    lon: 51.531,
-    lat: 25.2854,
-    role: "regional",
-    since: "2020",
-    focus: ["realestate", "petroleum"],
   },
   {
     id: "paris",
@@ -433,7 +437,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "حقوقك",
         body: [
-          "يحق لك طلب الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على معالجتها، وذلك وفقًا للأنظمة المعمول بها في المملكة العربية السعودية.",
+          "يحق لك طلب الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على معالجتها، وذلك وفقًا للقوانين والأنظمة المعمول بها في جمهورية مصر العربية.",
           "للممارسة هذه الحقوق، راسلنا على info@sawaunited.net وسنستجيب خلال المدة النظامية.",
         ],
       },
@@ -446,7 +450,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "التواصل معنا",
         body: [
-          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawaunited.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، طريق الملك فهد، الرياض، المملكة العربية السعودية.",
+          "لأي استفسار يتعلق بالخصوصية أو بحماية البيانات، يمكنك مراسلتنا على info@sawaunited.net أو الكتابة إلى المقر الرئيسي: مجموعة سوا المتحدة، مدينة الشيخ زايد، مدينة 6 أكتوبر، مصر.",
         ],
       },
     ],
@@ -494,7 +498,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "Your rights",
         body: [
-          "You may request access to, correction of, or deletion of your personal information, or object to its processing, in accordance with applicable regulations in the Kingdom of Saudi Arabia.",
+          "You may request access to, correction of, or deletion of your personal information, or object to its processing, in accordance with applicable laws and regulations in the Arab Republic of Egypt.",
           "To exercise these rights, contact us at info@sawaunited.net and we will respond within the legal timeframe.",
         ],
       },
@@ -507,7 +511,7 @@ export const privacyPolicy: Record<"ar" | "en", { title: string; intro: string; 
       {
         title: "Contact us",
         body: [
-          "For any privacy or data-protection question, write to info@sawaunited.net or to our headquarters: SAWA United Group, King Fahd Road, Riyadh, Saudi Arabia.",
+          "For any privacy or data-protection question, write to info@sawaunited.net or to our headquarters: SAWA United Group, El Sheikh Zayed City, 6 October City, Egypt.",
         ],
       },
     ],
