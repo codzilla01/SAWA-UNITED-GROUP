@@ -45,6 +45,21 @@ npm run build:hostinger
 
 ---
 
+## 2-ب. الرفع التلقائي من GitHub إلى Hostinger (FTP عبر GitHub Actions)
+
+يقوم ملف `.github/workflows/hostinger-package.yml` تلقائيًا ببناء المشروع ورفع محتويات `dist/` مباشرةً إلى `public_html` على Hostinger عند كل دمج في `main` (أو تشغيل يدوي من تبويب **Actions**)، بمجرد إضافة 3 أسرار مرة واحدة في إعدادات المستودع (`Settings → Secrets and variables → Actions → New repository secret`):
+
+| Secret Name | من أين تحصل عليه في Hostinger hPanel → Files → FTP Accounts |
+| --- | --- |
+| `HOSTINGER_FTP_SERVER` | عنوان **FTP IP** أو **FTP Host** (بدون `ftp://`، مثل `185.x.x.x` أو `ftp.sawa-united.net`) |
+| `HOSTINGER_FTP_USERNAME` | اسم مستخدم **FTP Username** |
+| `HOSTINGER_FTP_PASSWORD` | كلمة مرور حساب FTP |
+| `HOSTINGER_FTP_SERVER_DIR` | *(اختياري)* اتركه فارغًا إذا كان مسار حساب FTP يشير مباشرةً إلى `public_html`، أو ضع `./public_html/` أو `./domains/sawa-united.net/public_html/` (يجب أن ينتهي بـ `/`) حسب نوع حساب FTP |
+
+يحافظ الرفع التلقائي على ملف `config.php` الحي ومجلد `.well-known/` لشهادة SSL دون المساس بهما.
+
+---
+
 ## 3. إعداد البريد الإلكتروني لنموذج التواصل (hPanel → Emails)
 
 أنشئ صندوقين على النطاق `sawa-united.net`:

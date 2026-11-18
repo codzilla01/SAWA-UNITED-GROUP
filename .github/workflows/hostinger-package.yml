@@ -1,14 +1,24 @@
-name: Build Hostinger Package
+name: Build & Deploy to Hostinger
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: hostinger-deploy-production
+  cancel-in-progress: false
+
 jobs:
-  build:
-    name: Build public_html bundle for sawa-united.net
+  build-and-deploy:
+    name: Build & deploy public_html to sawa-united.net
     runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
+      FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+      FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+      FTP_SERVER_DIR: ${{ secrets.HOSTINGER_FTP_SERVER_DIR }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,3 +45,32 @@ jobs:
           path: sawa-united-public_html.zip
           include-hidden-files: true
           retention-days: 30
+
+      - name: Deploy dist/ to Hostinger via FTP
+        if: env.FTP_SERVER != '' && env.FTP_USERNAME != '' && env.FTP_PASSWORD != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./dist/
+          server-dir: ${{ env.FTP_SERVER_DIR != '' && env.FTP_SERVER_DIR || './' }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            config.php
+            **/config.php
+            .well-known/**
+            **/.well-known/**
+            cgi-bin/**
+            **/cgi-bin/**
+
+      - name: Skip notice when Hostinger FTP secrets are not set
+        if: env.FTP_SERVER == '' || env.FTP_USERNAME == '' || env.FTP_PASSWORD == ''
+        run: |
+          echo "::notice::Built sawa-united-public_html.zip artifact. Add HOSTINGER_FTP_SERVER, HOSTINGER_FTP_USERNAME, and HOSTINGER_FTP_PASSWORD in GitHub Actions Secrets to enable automatic deployment to Hostinger."
