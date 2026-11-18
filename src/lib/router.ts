@@ -32,6 +32,17 @@ function parseRoute(): Route {
   }
 
   const cleanPath = path.replace(/\/+$/, "");
+  if (
+    cleanPath === "" ||
+    cleanPath === "/index.html" ||
+    cleanPath === "/index.php" ||
+    cleanPath === "/default.php" ||
+    cleanPath === "/ar" ||
+    cleanPath === "/en" ||
+    cleanPath === "/fr"
+  ) {
+    return "home";
+  }
   if (cleanPath.endsWith("/privacy.html") || cleanPath.endsWith("privacy.html") || cleanPath === "/privacy") {
     return "privacy";
   }
@@ -39,7 +50,7 @@ function parseRoute(): Route {
     return "projects";
   }
 
-  return "home";
+  return "notfound";
 }
 
 function scrollToPending() {

@@ -1,5 +1,5 @@
 # ============================================================================
-# SAWA United Group — Hostinger LiteSpeed / Apache Configuration
+# SAWA United Group — Hostinger LiteSpeed / Apache SPA Configuration
 # Target path: /domains/sawa-united.net/public_html/.htaccess
 # ============================================================================
 
@@ -24,31 +24,45 @@ ErrorDocument 404 /404.html
 </FilesMatch>
 
 # ----------------------------------------------------------------------------
-# 2. HTTPS, canonical domain & clean SPA routing
+# 2. HTTPS, canonical domain & Hostinger React/Vite SPA fallback routing
 # ----------------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Block access to hidden directories/files (except Hostinger ACME SSL verification)
-  RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+  # Allow Hostinger AutoSSL / Let's Encrypt verification
+  RewriteRule ^\.well-known/ - [L]
+
+  # Block hidden dotfiles/directories
   RewriteRule (^|/)\. - [F,L]
 
   # Canonical non-www domain: www.sawa-united.net -> https://sawa-united.net
   RewriteCond %{HTTP_HOST} ^www\.sawa-united\.net$ [NC]
   RewriteRule ^ https://sawa-united.net%{REQUEST_URI} [R=301,L]
 
-  # Force HTTPS (Hostinger LiteSpeed & reverse-proxy safe)
+  # Force HTTPS (Hostinger LiteSpeed & Cloudflare safe)
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Serve existing static files & assets directly (index.html, assets/*, contact.php, images)
+  # Pass through entry point & PHP contact handler directly
+  RewriteRule ^index\.html$ - [L]
+  RewriteRule ^contact\.php$ - [L]
+
+  # Route legacy Hostinger placeholder URLs cleanly to the homepage
+  RewriteRule ^(default|index)\.php$ / [R=301,L]
+
+  # Route clean & .html SPA subpages to index.html
+  RewriteRule ^(projects|privacy)(\.html)?/?$ /index.html [L]
+
+  # Serve all real files directly (assets/*.js, assets/*.css, images, sitemap, robots, manifest, 404.html)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Clean SPA routes -> index.html
-  RewriteRule ^(projects|privacy)/?$ /index.html [L]
+  # SPA fallback: route any other non-file URL to index.html so Hostinger's default 404 never appears
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
 </IfModule>
 
 # ----------------------------------------------------------------------------

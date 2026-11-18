@@ -842,6 +842,8 @@ function detectLocale(): Locale {
     if (stored === "ar" || stored === "en" || stored === "fr") return stored;
     const fromQuery = new URLSearchParams(window.location.search).get("lang");
     if (fromQuery === "ar" || fromQuery === "en" || fromQuery === "fr") return fromQuery;
+    const fromPath = window.location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+    if (fromPath === "ar" || fromPath === "en" || fromPath === "fr") return fromPath;
     const browser = navigator.language.slice(0, 2).toLowerCase();
     if (browser === "fr") return "fr";
     if (browser === "ar") return "ar";
