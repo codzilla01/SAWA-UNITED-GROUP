@@ -52,9 +52,6 @@ const en = {
   },
   hero: {
     eyebrow: "A multi-sector group · Cairo Main HQ, Egypt",
-    title1: "Built together.",
-    titleAccent: "Beyond boundaries.",
-    lead: "A multi-sector group operating across automotive & car rental in Morocco, regional and global grain & food exports, land and residential real estate, and petroleum tankers.",
     primaryCta: "Explore our sectors",
     secondaryCta: "See our projects",
     sectorsLabel: "Four sectors, one group",
@@ -323,9 +320,6 @@ const ar: Copy = {
   },
   hero: {
     eyebrow: "مجموعة متعددة القطاعات · المركز الرئيسي: القاهرة",
-    title1: "معًا، نبني",
-    titleAccent: "ما يتجاوز الحدود.",
-    lead: "مجموعة متعددة القطاعات تعمل في السيارات وإيجار السيارات بالمغرب، وتصدير الحبوب والمواد الغذائية إقليميًا وعالميًا، والعقار، وناقلات البترول — لتبني قيمة تدوم عبر ستة أسواق.",
     primaryCta: "استكشف قطاعاتنا",
     secondaryCta: "شاهد مشروعاتنا",
     sectorsLabel: "أربعة قطاعات، مجموعة واحدة",
@@ -591,9 +585,6 @@ const fr: Copy = {
   },
   hero: {
     eyebrow: "Groupe multisectoriel · Siège principal : Le Caire",
-    title1: "Bâtir ensemble.",
-    titleAccent: "Aller au-delà.",
-    lead: "Un groupe multisectoriel actif dans l'automobile et la location au Maroc, l'exportation régionale et mondiale de céréales et denrées alimentaires, l'immobilier et les pétroliers.",
     primaryCta: "Découvrir nos secteurs",
     secondaryCta: "Voir nos projets",
     sectorsLabel: "Quatre secteurs, un groupe",
