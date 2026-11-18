@@ -31,26 +31,22 @@ function parseRoute(): Route {
     return "notfound";
   }
 
-  const cleanPath = path.replace(/\/+$/, "");
-  if (
-    cleanPath === "" ||
-    cleanPath === "/index.html" ||
-    cleanPath === "/index.php" ||
-    cleanPath === "/default.php" ||
-    cleanPath === "/ar" ||
-    cleanPath === "/en" ||
-    cleanPath === "/fr"
-  ) {
+  if (window.location.protocol === "file:") {
     return "home";
   }
-  if (cleanPath.endsWith("/privacy.html") || cleanPath.endsWith("privacy.html") || cleanPath === "/privacy") {
+
+  const cleanPath = path.replace(/\/+$/, "");
+  if (cleanPath.endsWith("/privacy.html") || cleanPath === "/privacy" || cleanPath.endsWith("/privacy")) {
     return "privacy";
   }
-  if (cleanPath.endsWith("/projects.html") || cleanPath.endsWith("projects.html") || cleanPath === "/projects") {
+  if (cleanPath.endsWith("/projects.html") || cleanPath === "/projects" || cleanPath.endsWith("/projects")) {
     return "projects";
   }
+  if (cleanPath === "/404" || cleanPath.endsWith("/404.html")) {
+    return "notfound";
+  }
 
-  return "notfound";
+  return "home";
 }
 
 function scrollToPending() {

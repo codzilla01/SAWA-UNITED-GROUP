@@ -1,5 +1,5 @@
 # ============================================================================
-# SAWA United Group — Hostinger LiteSpeed / Apache SPA Configuration
+# SAWA United Group — Hostinger Browser-Ready Production Configuration
 # Target path: /domains/sawa-united.net/public_html/.htaccess
 # ============================================================================
 
@@ -11,9 +11,9 @@ ErrorDocument 403 /404.html
 ErrorDocument 404 /404.html
 
 # ----------------------------------------------------------------------------
-# 1. Block direct HTTP access to sensitive & configuration files
+# 1. Block direct HTTP access to sensitive, config & source/build files
 # ----------------------------------------------------------------------------
-<FilesMatch "^(config(\.example)?\.php|\.env(\..*)?|\.git.*|\.htaccess|composer\.(json|lock)|package(-lock)?\.json|README.*\.md|.*\.(log|bak|sql|sh|ini|swp))$">
+<FilesMatch "^(config(\.example)?\.php|\.env(\..*)?|\.git.*|\.htaccess|composer\.(json|lock)|package(-lock)?\.json|tsconfig\.json|vite\.config\.ts|README.*\.md|.*\.(log|bak|sql|sh|ini|swp|ts|tsx|mjs))$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
@@ -24,7 +24,7 @@ ErrorDocument 404 /404.html
 </FilesMatch>
 
 # ----------------------------------------------------------------------------
-# 2. HTTPS, canonical domain & Hostinger React/Vite SPA fallback routing
+# 2. HTTPS, canonical domain & SPA routing
 # ----------------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -33,14 +33,16 @@ ErrorDocument 404 /404.html
   # Allow Hostinger AutoSSL / Let's Encrypt verification
   RewriteRule ^\.well-known/ - [L]
 
-  # Block hidden dotfiles/directories
+  # Block hidden dotfiles/directories and dev folders if repo was cloned directly
   RewriteRule (^|/)\. - [F,L]
+  RewriteRule ^(src|scripts|public|dist|node_modules)(/|$) - [F,L]
 
   # Canonical non-www domain: www.sawa-united.net -> https://sawa-united.net
   RewriteCond %{HTTP_HOST} ^www\.sawa-united\.net$ [NC]
   RewriteRule ^ https://sawa-united.net%{REQUEST_URI} [R=301,L]
 
-  # Force HTTPS (Hostinger LiteSpeed & Cloudflare safe)
+  # Force HTTPS on production domain (Hostinger LiteSpeed & Cloudflare safe)
+  RewriteCond %{HTTP_HOST} ^(www\.)?sawa-united\.net$ [NC]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -52,24 +54,30 @@ ErrorDocument 404 /404.html
   # Route legacy Hostinger placeholder URLs cleanly to the homepage
   RewriteRule ^(default|index)\.php$ / [R=301,L]
 
-  # Route clean & .html SPA subpages to index.html
-  RewriteRule ^(projects|privacy)(\.html)?/?$ /index.html [L]
+  # Normalize trailing slashes on SPA subpages so relative ./assets/* always resolve from root
+  RewriteRule ^(projects|privacy)/+$ /$1 [R=301,L]
+  RewriteRule ^(projects|privacy)(\.html)?$ index.html [L]
 
-  # Serve all real files directly (assets/*.js, assets/*.css, images, sitemap, robots, manifest, 404.html)
+  # Serve all real static files directly (assets/*, favicon-192.png, og-cover.jpg, sitemap.xml, robots.txt, site.webmanifest, 404.html)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # SPA fallback: route any other non-file URL to index.html so Hostinger's default 404 never appears
+  # Redirect deep unknown nested paths to root so relative ./assets/* stay valid
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^[^/]+/.+ /#/404 [R=302,NE,L]
+
+  # Fallback single-segment routes to index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . index.html [L]
 </IfModule>
 
 # ----------------------------------------------------------------------------
-# 3. MIME types (explicit ES module & asset types for LiteSpeed/Apache)
+# 3. MIME types
 # ----------------------------------------------------------------------------
 <IfModule mod_mime.c>
-  AddType text/javascript .js .mjs
+  AddType text/javascript .js
   AddType text/css .css
   AddType image/png .png
   AddType image/jpeg .jpg .jpeg
@@ -94,9 +102,9 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
-  # Long-lived immutable cache for fingerprinted JS/CSS & brand images
-  <FilesMatch "\.(js|mjs|css|jpg|jpeg|png|webp|avif|gif|svg|ico|woff2)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
+  # Cache static JS/CSS & brand images (versioned via ?v= query string)
+  <FilesMatch "\.(js|css|jpg|jpeg|png|webp|avif|gif|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 
   # Moderate cache for metadata files

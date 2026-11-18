@@ -21,7 +21,7 @@ npm run build:hostinger
 
 | File | Purpose |
 | --- | --- |
-| `index.html` + `assets/` | التطبيق الكامل المبني لبيئة الإنتاج (HTML خفيف + ملفات JS/CSS وشعارات مضغوطة في `assets/`) |
+| `index.html` + `assets/` | نسخة جاهزة مباشرةً للمتصفح (`index.html` + `assets/app.js` + `assets/style.css` + `logo.png` + `logo-mark.png`) تعمل فورًا دون أي بناء |
 | `.htaccess` | تحويل HTTPS + توحيد `www` إلى `sawa-united.net` + التوجيه + الكاش + الضغط + حماية `config.php` |
 | `contact.php` | معالج نموذج التواصل (PHP 8.0+ / مستحسن PHP 8.2) مع بديل واتساب تلقائي |
 | `config.example.php` | قالب إعدادات البريد (انسخه إلى `config.php` داخل `public_html` عند الحاجة) |
