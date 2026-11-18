@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:hostinger": "vite build && node scripts/package-hostinger.mjs",
+    "build": "node scripts/build-browser.mjs",
+    "build:hostinger": "node scripts/build-browser.mjs && node scripts/package-hostinger.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

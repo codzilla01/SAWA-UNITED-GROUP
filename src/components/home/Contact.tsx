@@ -124,7 +124,7 @@ export function Contact() {
     const timeout = window.setTimeout(() => controller.abort(), 6500);
 
     try {
-      const response = await fetch("/contact.php", {
+      const response = await fetch("./contact.php", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
